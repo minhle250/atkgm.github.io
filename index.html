@@ -172,13 +172,14 @@
 
     // 2. Chặn phím tắt (F12, Ctrl+U...)
     document.onkeydown = function(e) {
-        if (e.keyCode == 123) { return false; } // F12
-        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
-        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
+        if (e.keyCode == 123) { return false; alert("⚠️ Chức năng này đã bị khóa để bảo mật hệ thống!"); } // F12
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; alert("⚠️ Chức năng này đã bị khóa để bảo mật hệ thống!"); } // Ctrl+U
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; alert("⚠️ Chức năng này đã bị khóa để bảo mật hệ thống!"); } // Ctrl+Shift+I
     }
     </script>
 
   </body>
 </html>
+
 
 
