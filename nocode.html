@@ -3,89 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚫 ACCESS DENIED | CẤM TRUY CẬP</title>
+    <title>🐧 NOOT NOOT! | VÙNG CẤM PINGU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #000; /* Màu nền đen thùi lùi */
-            color: #0f0; /* Màu chữ xanh lá Hacker */
-            font-family: 'Courier New', Courier, monospace; /* Font máy đánh chữ */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            /* Tạo nền chuyển màu từ trời xanh xuống nền tuyết trắng */
+            background: linear-gradient(to bottom, #87CEEB 0%, #e3f2fd 50%, #ffffff 100%);
             height: 100vh;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Fredoka One', cursive, sans-serif; /* Font chữ mập mập dễ thương */
+            overflow: hidden; /* Ẩn thanh cuộn */
+            position: relative;
+        }
+
+        /* Hiệu ứng tuyết rơi nhẹ (Optional - làm nền sinh động hơn) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://i.imgur.com/8x9v3jH.png'); /* Ảnh hạt tuyết nhỏ */
+            animation: snow 10s linear infinite;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @keyframes snow { from { background-position: 0 0; } to { background-position: 0 500px; } }
+
+        /* Cái khung chính - Hình dáng cái Lều Tuyết (Igloo) */
+        .igloo-container {
+            background: rgba(255, 255, 255, 0.9); /* Màu trắng tuyết bán trong suốt */
+            padding: 30px 40px;
+            border-radius: 50px 50px 20px 20px; /* Bo tròn phía trên nhiều hơn */
+            border: 8px solid #e1f5fe; /* Viền băng xanh nhạt */
+            box-shadow: 0 20px 30px rgba(0, 132, 255, 0.2), inset 0 5px 15px rgba(255,255,255,1);
             text-align: center;
-            overflow: hidden; /* Không cho cuộn */
+            position: relative;
+            z-index: 10; /* Nổi lên trên nền tuyết */
+            max-width: 500px;
         }
 
         h1 {
             font-size: 60px;
-            color: red;
-            border: 5px solid red;
-            padding: 10px 30px;
-            text-transform: uppercase;
-            animation: shake 0.5s infinite; /* Hiệu ứng rung lắc */
+            color: #d32f2f; /* Màu đỏ của mỏ Pingu */
+            text-shadow: 3px 3px 0 #ffffff, 5px 5px 0 #0277bd; /* Tạo hiệu ứng chữ nổi khối băng */
+            margin: 0;
+            /* Hiệu ứng lắc lư nhẹ theo nhạc */
+            animation: wobble 1s ease-in-out infinite alternate;
+        }
+        @keyframes wobble { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+
+        .main-gif {
+            border-radius: 15px;
+            border: 4px solid #0277bd;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         }
 
-        /* Hiệu ứng rung lắc cho chữ ACCESS DENIED */
-        @keyframes shake {
-            0% { transform: translate(1px, 1px) rotate(0deg); }
-            10% { transform: translate(-1px, -2px) rotate(-1deg); }
-            20% { transform: translate(-3px, 0px) rotate(1deg); }
-            30% { transform: translate(3px, 2px) rotate(0deg); }
-            40% { transform: translate(1px, -1px) rotate(1deg); }
-            50% { transform: translate(-1px, 2px) rotate(-1deg); }
-            60% { transform: translate(-3px, 1px) rotate(0deg); }
-            70% { transform: translate(3px, 1px) rotate(-1deg); }
-            80% { transform: translate(-1px, -1px) rotate(1deg); }
-            90% { transform: translate(1px, 2px) rotate(0deg); }
-            100% { transform: translate(1px, -2px) rotate(-1deg); }
-        }
+        h2 { color: #01579b; margin-top: 10px; }
 
-        .blink {
-            animation: blinker 1s linear infinite;
-        }
-
-        @keyframes blinker {
-            50% { opacity: 0; }
+        /* Dòng chữ ngôn ngữ Pingu */
+        .pingu-speak {
+            font-style: italic;
+            color: #555;
+            background: #e3f2fd;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 20px;
         }
 
         .btn-back {
-            margin-top: 30px;
-            padding: 15px 30px;
-            font-size: 20px;
-            font-weight: bold;
-            background: #333;
+            padding: 15px 40px;
+            font-size: 22px;
             color: white;
-            border: 1px solid white;
-            cursor: pointer;
-            transition: 0.3s;
+            background: linear-gradient(to bottom, #0288d1, #01579b); /* Nút màu băng */
+            border: 3px solid white;
+            border-radius: 50px;
             text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 0 #003c8f; /* Hiệu ứng nút 3D */
+            transition: all 0.1s;
         }
+        .btn-back:hover { transform: translateY(4px); box-shadow: 0 4px 0 #003c8f; }
+        .btn-back:active { transform: translateY(8px); box-shadow: none; }
 
-        .btn-back:hover {
-            background: white;
-            color: black;
+        /* --- CÁC YẾU TỐ TRANG TRÍ (DECORATION) --- */
+        /* Bé Pinga đứng ngó ở góc */
+        .deco-pinga {
+            position: absolute;
+            bottom: -30px;
+            left: -60px;
+            width: 120px;
+            z-index: 20;
+            filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.2));
+            /* Hiệu ứng Pinga nhún nhảy */
+            animation: bounce 1.5s infinite alternate ease-in-out;
+        }
+        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+
+        /* Cục tuyết trang trí */
+        .deco-snowball {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 50px;
         }
     </style>
 </head>
 <body>
 
-    <h1>🚫 ACCESS DENIED</h1>
-    
-    <img src="https://media.tenor.com/26fw1gJzjG8AAAAM/cat-no.gif" alt="No No No" style="border-radius: 10px; margin: 20px 0;">
+    <div class="igloo-container">
+        <span class="deco-snowball">❄️</span>
+        
+        <h1>NOOT NOOT!</h1>
+        
+        <img class="main-gif" src="https://media.tenor.com/i8Hq_QvGjIQAAAAC/pingu-family.gif" alt="Pingu Family Opening" width="350">
 
-    <h2 style="color: white;">CODE ĐÂU MÀ XIN? TỰ LÀM ĐI BẠN ƠI! 😎</h2>
+        <h2>HỘI ĐỒNG BẮC CỰC BẢO: "KHÔNG!"</h2>
+        
+        <p class="pingu-speak">
+            🗣️ "Noot noot! Pi pi blah blah... Code? Noot!" 🐧
+        </p>
 
-    <p>> Đang ghi lại địa chỉ IP của bạn: <span style="color: red;">192.168.1.1</span> <span class="blink">_</span></p>
+        <a href="index.html" class="btn-back">🏠 VỀ NHÀ THÔI</a>
 
-    <a href="index.html" class="btn-back">🔙 QUAY LẠI HỌC BÀI ĐI</a>
-
-    <script>
-        // Script nhỏ để chặn chuột phải (Anti-Copy) cho thêm phần nguy hiểm
-        document.addEventListener('contextmenu', event => event.preventDefault());
-    </script>
+        <img class="deco-pinga" src="https://i.imgur.com/Jz5tFfB.png" alt="Pinga">
+    </div>
 
 </body>
 </html>
