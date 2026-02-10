@@ -114,9 +114,7 @@
 
 
         <aside class="sidebar">
-            
             <h3> - THANH THÔNG TIN - </h3>
-            
             <a href="https://bocongan.gov.vn/" target="_blank" class="bca-preview">
                 <div class="browser-bar">
                     <span class="dot red"></span>
@@ -129,12 +127,9 @@
             </a>
 
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Vietnam_People%27s_Insignia_emblem.svg/1280px-Vietnam_People%27s_Insignia_emblem.svg.png" alt="Công An Hiệu" class="police-badge">
-            
             <h3>CỔNG THÔNG TIN ĐIỆN TỬ<br>BỘ CÔNG AN</h3>
             <p style="font-size: 13px;">Kênh chính thống cập nhật tin tức an ninh trật tự.</p>
-            
             <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
-            
             <div class="quote-box-sidebar">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ho_Chi_Minh_1946.jpg/640px-Ho_Chi_Minh_1946.jpg" alt="Chân dung Bác Hồ" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ffda00; object-fit: cover;">
@@ -206,6 +201,12 @@
         window.onclick = function(event) {
             var modal = document.getElementById('pingu-credit-modal');
             if (event.target == modal) { modal.style.display = "none"; }
+        }
+
+        // BẢO MẬT HỆ THỐNG
+        document.addEventListener('contextmenu', e => { e.preventDefault(); alert("⚠️ Chức năng bị khóa!"); });
+        document.onkeydown = e => {
+            if (e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || (e.shiftKey && e.keyCode == 73)))) return false;
         }
     </script>
   </body>
