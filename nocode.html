@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚫 ACCESS DENIED | CẤM TRUY CẬP</title>
+    <style>
+        body {
+            background-color: #000; /* Màu nền đen thùi lùi */
+            color: #0f0; /* Màu chữ xanh lá Hacker */
+            font-family: 'Courier New', Courier, monospace; /* Font máy đánh chữ */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden; /* Không cho cuộn */
+        }
+
+        h1 {
+            font-size: 60px;
+            color: red;
+            border: 5px solid red;
+            padding: 10px 30px;
+            text-transform: uppercase;
+            animation: shake 0.5s infinite; /* Hiệu ứng rung lắc */
+        }
+
+        /* Hiệu ứng rung lắc cho chữ ACCESS DENIED */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .blink {
+            animation: blinker 1s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+
+        .btn-back {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            background: #333;
+            color: white;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🚫 ACCESS DENIED</h1>
+    
+    <img src="https://media.tenor.com/26fw1gJzjG8AAAAM/cat-no.gif" alt="No No No" style="border-radius: 10px; margin: 20px 0;">
+
+    <h2 style="color: white;">CODE ĐÂU MÀ XIN? TỰ LÀM ĐI BẠN ƠI! 😎</h2>
+
+    <p>> Đang ghi lại địa chỉ IP của bạn: <span style="color: red;">192.168.1.1</span> <span class="blink">_</span></p>
+
+    <a href="index.html" class="btn-back">🔙 QUAY LẠI HỌC BÀI ĐI</a>
+
+    <script>
+        // Script nhỏ để chặn chuột phải (Anti-Copy) cho thêm phần nguy hiểm
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+
+</body>
+</html>
