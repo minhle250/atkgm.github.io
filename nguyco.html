@@ -7,6 +7,31 @@
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/553/553376.png" type="image/png">
     
     <link rel="stylesheet" href="antoanso.css">
+
+    <style>
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); z-index: 10000;
+            align-items: center; justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: #0d1117; border: 2px solid #00ff41;
+            padding: 30px; border-radius: 10px; width: 80%; max-width: 800px;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+            font-family: 'Courier New', monospace; color: #fff;
+            position: relative; animation: zoomIn 0.3s ease;
+        }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px;}
+        .member-card { background: #161b22; border: 1px solid #30363d; padding: 15px; border-radius: 5px; text-align: center; transition: 0.3s; }
+        .member-card:hover { transform: translateY(-5px); border-color: #fff; }
+        .role { font-size: 0.8em; color: #8b949e; margin-bottom: 5px; font-style: italic; }
+        .name { font-size: 1.1em; font-weight: bold; margin-bottom: 10px; color: #fff; }
+        .member-card.leader { border: 1px solid #FFD700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); }
+        .member-card.leader .name { color: #FFD700; }
+        .close-btn { position: absolute; top: 10px; right: 20px; color: #ff5555; font-size: 30px; cursor: pointer; }
+        @keyframes zoomIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+    </style>
   </head>
 
   <body>
@@ -23,6 +48,7 @@
       <a href="giaiphap.html"> 🛡️ Giải pháp </a>
       <a href="tuyentruyen.html"> ⚖️ Luật ANM </a>
       <a href="tintuc.html"> 📰 Báo chí </a>
+      <a href="#" onclick="openCreditModal(); return false;"> 👥 Credits Team </a>
     </nav>
 
 
@@ -149,5 +175,38 @@
       </script>
     </footer>
 
+    <div id="pingu-credit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCreditModal()">&times;</span>
+            <h2 style="text-align: center; color: #00ff41;">Mihh_DEVTEAM2026</h2>
+            <div class="team-grid">
+                <div class="member-card leader">
+                    <div class="role">★ PROJECT MANAGER & LEAD DEV</div>
+                    <div class="name">QUANG MINH (CEO)</div>
+                    <div class="task">Quản lý, điều hành & Thiết kế hệ thống Website.</div>
+                </div>
+                <div class="member-card">
+                    <div class="role">CONTENT RESEARCHER</div>
+                    <div class="name">XUÂN NHÃ</div>
+                    <div class="task">Tìm kiếm & Khai thác nội dung số.</div>
+                </div>
+                <div class="member-card">
+                    <div class="role">TECHNICAL SUPPORT</div>
+                    <div class="name">QUỐC BẢO & KIM KHOA</div>
+                    <div class="task">Hỗ trợ chỉnh sửa & Tinh chỉnh giao diện.</div>
+                </div>
+            </div>
+            <p style="text-align: center; color: #555; margin-top: 20px; font-size: 0.8em;">SYSTEM OPTIMIZED FOR 12TH GRADE OLYMPICS</p>
+        </div>
+    </div>
+
+    <script>
+        function openCreditModal() { document.getElementById('pingu-credit-modal').style.display = 'flex'; }
+        function closeCreditModal() { document.getElementById('pingu-credit-modal').style.display = 'none'; }
+        window.onclick = function(event) {
+            var modal = document.getElementById('pingu-credit-modal');
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
+    </script>
   </body>
 </html>
