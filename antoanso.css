@@ -1,168 +1,105 @@
-/* =========================================
-   VOGUE BEIGE EDITION - RE-STRUCTURED
-   Concept: Minimalist Editorial & Solid Layout
-   ========================================= */
-
-/* --- 0. IMPORT FONTS --- */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,900;1,900&family=Inter:wght@300;400;600&display=swap');
+/* --- 0. FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;600&display=swap');
 
 :root {
-    --bg-beige: #f5f2eb;      /* Beige chuẩn Vogue */
-    --vogue-black: #1a1a1a;   /* Đen sang trọng */
-    --vogue-brown: #5d4037;   /* Nâu Cafe làm điểm nhấn */
+    --primary: #5d4037;      /* Nâu Cafe */
+    --accent: #8d6e63;       /* Nâu hồng nhạt */
+    --bg-beige: #f5f2eb;     /* Nền Beige ấm */
     --white: #ffffff;
-    --line: 1px solid #1a1a1a;
-    
-    --font-heading: 'Merriweather', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --radius: 30px;          /* Bo góc đặc trưng của m */
 }
 
-/* --- 1. RESET & CƠ BẢN --- */
+/* --- 1. CẤU TRÚC CHUNG --- */
 body {
-    margin: 0; padding: 0;
-    background-color: var(--bg-beige);
-    font-family: var(--font-body);
-    color: var(--vogue-black);
+    margin: 0; background-color: var(--bg-beige);
+    font-family: var(--font-sans); color: #333;
     line-height: 1.6;
 }
 
-/* --- 2. HEADER --- */
+/* --- 2. HEADER (BO TRÒN SANG CHẢNH) --- */
 header {
-    text-align: center;
-    padding: 80px 20px;
-    border-bottom: var(--line);
-    background: transparent;
+    text-align: center; padding: 60px 20px;
+    background: linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(93, 64, 55, 0.1);
 }
 
 h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 900;
-    margin: 0;
-    text-transform: uppercase;
-    font-style: italic;
-    letter-spacing: -1px;
+    font-family: var(--font-serif); font-size: 42px;
+    color: var(--primary); margin: 0; text-transform: uppercase;
+    font-style: italic; letter-spacing: -1px;
 }
 
-header p {
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 13px;
-    color: var(--vogue-brown);
-    margin-top: 10px;
-}
-
-/* --- 3. MENU (NAV) --- */
+/* --- 3. MENU (NAV PILL STYLE) --- */
 nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: var(--bg-beige);
-    border-bottom: var(--line);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 10px; background: var(--white);
+    width: fit-content; margin: -25px auto 40px;
+    padding: 10px; border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    position: sticky; top: 10px; z-index: 1000;
 }
 
 nav a {
-    text-decoration: none;
-    color: var(--vogue-black);
-    padding: 15px 20px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    text-decoration: none; color: #555;
+    padding: 10px 20px; font-weight: 600; font-size: 13px;
+    border-radius: 50px; text-transform: uppercase;
 }
 
-nav a:hover, nav a.active {
-    background-color: var(--vogue-black);
-    color: var(--bg-beige);
+nav a:hover, .active {
+    background-color: var(--primary);
+    color: var(--white) !important;
 }
 
-/* --- 4. CẤU TRÚC LAYOUT (PHẢI GIỮ CÁI NÀY) --- */
+/* --- 4. LAYOUT 2 CỘT (FIX CỨNG) --- */
 .container {
-    display: flex;
-    width: 95%;
-    max-width: 1100px;
-    margin: 40px auto;
-    gap: 40px; /* Khoảng cách giữa main và sidebar */
+    display: flex; width: 95%; max-width: 1100px;
+    margin: 0 auto 50px; gap: 30px;
 }
 
-/* CỘT TRÁI - NỘI DUNG CHÍNH */
+/* CỘT TRÁI */
 .main-content {
-    flex: 2; /* Chiếm 2 phần */
-    background: var(--white);
-    padding: 40px;
-    border: var(--line);
-    box-shadow: 10px 10px 0px var(--vogue-black); /* Shadow cứng kiểu tạp chí */
+    flex: 2.3; background: var(--white);
+    padding: 40px; border-radius: var(--radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
 }
 
-/* CỘT PHẢI - THANH THÔNG TIN */
+/* CỘT PHẢI */
 .sidebar {
-    flex: 1; /* Chiếm 1 phần */
-    position: sticky;
-    top: 80px; /* Cách menu khi cuộn */
+    flex: 1; position: sticky; top: 100px;
     height: fit-content;
 }
 
-/* --- 5. NỘI DUNG CHI TIẾT --- */
-.main-content h2 {
-    font-family: var(--font-heading);
-    font-size: 28px;
-    border-bottom: 2px solid var(--vogue-black);
-    padding-bottom: 10px;
-    margin-top: 0;
-}
-
-.main-content img {
-    width: 100%;
-    height: auto;
-    filter: sepia(20%); /* Chút màu phim cho hợp beige */
-    margin: 20px 0;
-}
-
-/* --- 6. FOOTER (AUTO-FIT & SANG CHẢNH) --- */
+/* --- 5. FOOTER (AUTO-FIT TRÊN ĐIỆN THOẠI) --- */
 footer {
-    border-top: var(--line);
-    padding: 60px 20px;
-    margin-top: 80px;
-    background-color: var(--bg-beige);
-    text-align: center;
+    background: #222; color: #eee;
+    padding: 40px 20px; text-align: center;
+    border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .footer-widgets {
-    display: flex;
-    flex-wrap: wrap; /* Tự xuống dòng trên đt */
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+    display: flex; flex-wrap: wrap; /* Tự xuống dòng khi thiếu chỗ */
+    justify-content: center; gap: 15px; margin-top: 15px;
 }
 
 .widget-item {
-    background: var(--white);
-    border: var(--line);
-    padding: 10px 25px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    flex: 1 1 auto; /* Tự co dãn */
-    min-width: 150px;
+    background: rgba(255,255,255,0.1);
+    padding: 10px 20px; border-radius: 50px;
+    font-size: 13px; flex: 1 1 auto;
+    min-width: 150px; border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* --- 7. RESPONSIVE (DÀNH CHO ĐIỆN THOẠI) --- */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Sidebar nhảy xuống dưới main */
-    }
-    
-    .sidebar {
-        position: static;
-        order: -1; /* Sidebar nhảy lên trên đầu nếu mày muốn, ko thì bỏ dòng này */
-    }
+/* --- 6. HỆ THỐNG CLASS "TK" CỦA ĐỒNG MINH --- */
+.TK1 { background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; }
+.TK3 { font-family: var(--font-serif); font-size: 32px; color: var(--primary); text-align: center; }
 
-    .main-content {
-        padding: 20px;
-    }
-    
+/* --- 7. RESPONSIVE --- */
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { position: static; order: -1; } /* Sidebar lên đầu trên Mobile */
     h1 { font-size: 32px; }
+    .main-content { padding: 25px; }
 }
