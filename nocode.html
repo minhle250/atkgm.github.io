@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐧 NOOT NOOT! | VÙNG CẤM PINGU</title>
+    <title>🐧 NOOT NOOT! | PINGU ZONE</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
+        /* GIỮ NGUYÊN CSS CŨ */
         body {
-            /* Tạo nền chuyển màu từ trời xanh xuống nền tuyết trắng */
             background: linear-gradient(to bottom, #87CEEB 0%, #e3f2fd 50%, #ffffff 100%);
             height: 100vh;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Fredoka One', cursive, sans-serif; /* Font chữ mập mập dễ thương */
-            overflow: hidden; /* Ẩn thanh cuộn */
+            font-family: 'Fredoka One', cursive, sans-serif;
+            overflow: hidden;
             position: relative;
         }
-
-        /* Hiệu ứng tuyết rơi nhẹ (Optional - làm nền sinh động hơn) */
         body::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('Transparent_Snowfall_PNG_Effect.png'); /* Ảnh hạt tuyết nhỏ */
+            background-image: url('https://i.imgur.com/8x9v3jH.png');
             animation: snow 10s linear infinite;
             opacity: 0.5;
             pointer-events: none;
@@ -32,25 +29,23 @@
         }
         @keyframes snow { from { background-position: 0 0; } to { background-position: 0 500px; } }
 
-        /* Cái khung chính - Hình dáng cái Lều Tuyết (Igloo) */
         .igloo-container {
-            background: rgba(255, 255, 255, 0.9); /* Màu trắng tuyết bán trong suốt */
+            background: rgba(255, 255, 255, 0.9);
             padding: 30px 40px;
-            border-radius: 50px 50px 20px 20px; /* Bo tròn phía trên nhiều hơn */
-            border: 8px solid #e1f5fe; /* Viền băng xanh nhạt */
+            border-radius: 50px 50px 20px 20px;
+            border: 8px solid #e1f5fe;
             box-shadow: 0 20px 30px rgba(0, 132, 255, 0.2), inset 0 5px 15px rgba(255,255,255,1);
             text-align: center;
             position: relative;
-            z-index: 10; /* Nổi lên trên nền tuyết */
+            z-index: 10;
             max-width: 500px;
         }
 
         h1 {
             font-size: 60px;
-            color: #d32f2f; /* Màu đỏ của mỏ Pingu */
-            text-shadow: 3px 3px 0 #ffffff, 5px 5px 0 #0277bd; /* Tạo hiệu ứng chữ nổi khối băng */
+            color: #d32f2f;
+            text-shadow: 3px 3px 0 #ffffff, 5px 5px 0 #0277bd;
             margin: 0;
-            /* Hiệu ứng lắc lư nhẹ theo nhạc */
             animation: wobble 1s ease-in-out infinite alternate;
         }
         @keyframes wobble { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
@@ -63,9 +58,8 @@
             box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         }
 
-        h2 { color: #01579b; margin-top: 10px; }
+        h2 { color: #01579b; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Dòng chữ ngôn ngữ Pingu */
         .pingu-speak {
             font-style: italic;
             color: #555;
@@ -80,19 +74,17 @@
             padding: 15px 40px;
             font-size: 22px;
             color: white;
-            background: linear-gradient(to bottom, #0288d1, #01579b); /* Nút màu băng */
+            background: linear-gradient(to bottom, #0288d1, #01579b);
             border: 3px solid white;
             border-radius: 50px;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 8px 0 #003c8f; /* Hiệu ứng nút 3D */
+            box-shadow: 0 8px 0 #003c8f;
             transition: all 0.1s;
         }
         .btn-back:hover { transform: translateY(4px); box-shadow: 0 4px 0 #003c8f; }
         .btn-back:active { transform: translateY(8px); box-shadow: none; }
 
-        /* --- CÁC YẾU TỐ TRANG TRÍ (DECORATION) --- */
-        /* Bé Pinga đứng ngó ở góc */
         .deco-pinga {
             position: absolute;
             bottom: -30px;
@@ -100,12 +92,10 @@
             width: 120px;
             z-index: 20;
             filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.2));
-            /* Hiệu ứng Pinga nhún nhảy */
             animation: bounce 1.5s infinite alternate ease-in-out;
         }
         @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
 
-        /* Cục tuyết trang trí */
         .deco-snowball {
             position: absolute;
             top: -20px;
@@ -121,18 +111,22 @@
         
         <h1>NOOT NOOT!</h1>
         
-        <img class="main-gif" src="giphy.gif" alt="Pingu Family Opening" width="350">
+        <img class="main-gif" src="https://media.tenor.com/i8Hq_QvGjIQAAAAC/pingu-family.gif" alt="Pingu Family" width="350">
 
-        <h2>HỘI ĐỒNG BẮC CỰC BẢO: "KHÔNG!"</h2>
+        <h2>THE ARCTIC COUNCIL SAYS: NO!</h2>
         
         <p class="pingu-speak">
             🗣️ "Noot noot! Pi pi blah blah... Code? Noot!" 🐧
         </p>
 
-        <a href="index.html" class="btn-back">🏠 VỀ NHÀ THÔI</a>
+        <a href="index.html" class="btn-back">🏠 GO BACK HOME</a>
 
         <img class="deco-pinga" src="https://i.imgur.com/Jz5tFfB.png" alt="Pinga">
     </div>
+
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
 
 </body>
 </html>
