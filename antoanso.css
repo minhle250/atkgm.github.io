@@ -49,19 +49,14 @@
 /* --- 2. CẤU TRÚC CHUNG --- */
 
 body {
-
     margin: 0;
-
+    padding: 0;
+    overflow-x: hidden; /* Chặn thanh cuộn ngang thừa */
     background-color: var(--bg-color);
-
     /* Thay đổi font mặc định sang Inter */
-
     font-family: var(--font-body);
-
     color: var(--text-color);
-
     line-height: 1.6;
-
     overflow-x: hidden;
 
 }
@@ -529,4 +524,5 @@ strong {
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
 
