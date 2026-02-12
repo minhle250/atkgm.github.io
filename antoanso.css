@@ -129,22 +129,23 @@ nav a:hover {
     color: #fff;
 }
 
-/* --- 4. BỐ CỤC CHÍNH (CONTAINER) --- */
+/* --- 1. SỬA LẠI CONTAINER CHO ĐỒNG BỘ (FIX LỆCH) --- */
 .container {
     display: flex;
     
-    /* QUAN TRỌNG: Dùng chung biến --site-width */
+    /* Dùng biến width chuẩn đã khai báo (1200px) */
     width: 90%;
-    max-width: var(--site-width); 
+    max-width: 1200px; /* Hoặc var(--site-width) nếu m đã khai báo */
     
-    margin: 60px auto 80px; /* Tự động căn giữa */
-    gap: 40px;
-    align-items: flex-start;
+    margin: 60px auto 80px; /* Căn giữa màn hình */
+    gap: 40px; /* Khoảng cách giữa cột Nội dung và Sidebar */
+    align-items: flex-start; /* Chống bị kéo dãn chiều cao */
 }
 
-/* --- GIỮ NGUYÊN PHẦN CÒN LẠI (Main-content, Sidebar, Footer...) --- */
+/* Đảm bảo tỉ lệ 7:3 không bị vỡ */
 .main-content {
     flex: 7;
+    width: 70%; /* Fallback cho trình duyệt cũ */
     background-color: var(--white);
     padding: 40px;
     border-radius: 8px;
@@ -154,31 +155,127 @@ nav a:hover {
 
 .sidebar {
     flex: 3;
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #eee;
+    width: 30%; /* Fallback */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Khoảng cách giữa các widget trong sidebar */
+    
+    /* Sticky sidebar (tùy chọn) */
     position: sticky;
-    top: 80px;
+    top: 100px; 
 }
 
-/* Trang trí nội dung */
-.main-content h2 {
-    font-family: var(--font-heading);
-    color: var(--primary);
-    font-size: 26px;
-    margin-top: 0;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+
+/* --- 2. GIAO DIỆN MACOS WINDOW (CHỨA ẢNH VIETNAM & LOGO) --- */
+.macos-window {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Bóng đổ sâu cho giống cửa sổ nổi */
+    overflow: hidden;
+    border: 1px solid #d1d1d1;
+    margin-bottom: 30px;
+}
+
+/* Thanh tiêu đề giả lập MacOS */
+.window-bar {
+    background: #e8e8e8; /* Màu xám đặc trưng */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    gap: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* 3 chấm đèn giao thông */
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background: #ff5f56; border: 1px solid #e0443e; }
+.dot.yellow { background: #ffbd2e; border: 1px solid #dea123; }
+.dot.green { background: #27c93f; border: 1px solid #1aab29; }
+
+/* Phần nội dung chứa ảnh */
+.window-content {
+    position: relative; /* Để căn logo tuyệt đối bên trong */
+    width: 100%;
+    height: 250px; /* Chiều cao cố định hoặc auto tùy m */
+    overflow: hidden;
+}
+
+/* Ảnh nền Vietnam.jpg */
+.bg-vietnam {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt ảnh cho vừa khung */
+    display: block;
+    filter: brightness(0.9); /* Làm tối nhẹ để logo nổi hơn */
+}
+
+/* Logo Công An (Đè lên trên) */
+.overlay-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn chính giữa tâm */
+    width: 80px; /* Kích thước logo */
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); /* Bóng đổ cho logo nổi bật */
+    transition: transform 0.3s;
+}
+
+.window-content:hover .overlay-logo {
+    transform: translate(-50%, -50%) scale(1.1); /* Phóng to nhẹ khi di chuột */
+}
+
+
+/* --- 3. WIDGET TÔN VINH BÁC (STYLE TRANG TRỌNG) --- */
+.tribute-card {
+    background: linear-gradient(135deg, #5d4037 0%, #3e2723 100%); /* Nâu chủ đạo */
+    color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid #8d6e63;
     position: relative;
+    overflow: hidden;
 }
-.main-content h2::after {
-    content: ''; position: absolute; bottom: -2px; left: 0;
-    width: 60px; height: 2px; background-color: var(--primary);
+
+/* Họa tiết hoa sen chìm (nếu có) hoặc hiệu ứng ánh sáng */
+.tribute-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 60%);
+    pointer-events: none;
 }
-.main-content img { width: 100%; height: auto; margin: 20px 0; border-radius: 4px; }
-.btn-police { display: inline-block; background: var(--primary); color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-top: 10px; }
+
+.tribute-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ffca28; /* Viền vàng kim */
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.tribute-title {
+    font-family: var(--font-heading); /* Font Merriweather */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffca28; /* Màu vàng */
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.tribute-quote {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
 
 /* Footer */
 footer {
@@ -193,3 +290,4 @@ footer {
     header h1, header p { text-align: center; } /* Mobile căn giữa cho đẹp */
     header p { border-left: none; padding-left: 0; }
 }
+
