@@ -124,15 +124,18 @@ nav a:hover {
 }
 
 /* --- 6. BỐ CỤC (LAYOUT) --- */
+/* --- 6. BỐ CỤC (LAYOUT) --- */
 .container {
     display: flex;
     width: 90%;
     max-width: 1100px;
-    margin: 80px auto 60px;
+    
+    /* SỬA DÒNG NÀY: Tăng khoảng cách bên trên từ 40px lên 80px hoặc 100px */
+    margin: 80px auto 60px; 
+    
     gap: 30px;
     align-items: flex-start;
 }
-
 /* CỘT TRÁI */
 .main-content {
     flex: 2;
@@ -297,4 +300,5 @@ strong {
     
     .media-grid { grid-template-columns: 1fr; }
 }
+
 
