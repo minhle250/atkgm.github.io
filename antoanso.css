@@ -20,6 +20,16 @@
     --shadow: 0 10px 30px rgba(93, 64, 55, 0.1); /* Hiệu ứng bóng đổ */
 
     /* Biến Font chữ */
+    --primary-color: #5d4037;   /* Nâu Cafe */
+    --accent-color: #8d6e63;    /* Nâu Hồng */
+    --highlight: #d90429;       /* Đỏ cờ */
+    --text-color: #4a4a4a;      /* Xám đậm */
+    --bg-color: #f5f2eb;        /* Kem ấm */
+    --white: #ffffff;
+    --radius-box: 30px;         /* Bo góc */
+    --shadow: 0 10px 30px rgba(93, 64, 55, 0.1);
+
+    /* Font Variables */
     --font-heading: 'Merriweather', serif;  /* Font Tiêu đề (Có chân - Sang trọng) */
     --font-body: 'Inter', sans-serif;       /* Font Nội dung (Không chân - Sạch sẽ) */
 }
@@ -32,6 +42,14 @@ body {
     color: var(--text-color);   /* Màu chữ chung */
     line-height: 1.6;           /* Khoảng cách dòng cho dễ đọc */
     overflow-x: hidden;         /* Chặn thanh cuộn ngang nếu nội dung bị tràn */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Chặn thanh cuộn ngang thừa */
+    background-color: var(--bg-color);
+    /* Thay đổi font mặc định sang Inter */
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 /* --- 3. HEADER (PHẦN ĐẦU TRANG) --- */
@@ -47,6 +65,7 @@ header {
     position: relative; 
     
     /* Ảnh nền kết hợp Gradient màu loang */
+    padding: 60px 20px 80px;
     background: url("beige.jpg") center/cover no-repeat,
                 linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
     
@@ -56,6 +75,8 @@ header {
     
     box-shadow: var(--shadow);  /* Đổ bóng cho header nổi lên */
     margin-bottom: -50px;       /* Đẩy header lấn xuống dưới một chút */
+    box-shadow: var(--shadow);
+    margin-bottom: -50px;
 }
 
 
@@ -119,7 +140,50 @@ nav a {
     border-radius: 50px;        /* Bo tròn nút menu hình viên thuốc */
     transition: all 0.3s ease;  /* Hiệu ứng chuyển động mượt */
     white-space: nowrap;        /* Không cho chữ xuống dòng */
+/* --- 4. MENU (NAV) - ĐÃ SỬA TRÀN VIỀN --- */
+nav {
+    /* KÍCH THƯỚC: Trải hết màn hình */
+    width: 100%;  
+    height: auto;
+    
+    /* BỐ CỤC: Dàn quân */
+    display: flex;
+    justify-content: center; /* Items nằm giữa màn hình */
+    align-items: center;
+    flex-wrap: wrap;
+
+    /* GIAO DIỆN: Vuông vức mới trải được */
+    background-color: var(--white); 
+    border-radius: 0;       /* QUAN TRỌNG: Vuông góc, không bo tròn */
+    margin: 0;              /* QUAN TRỌNG: Sát lề */
+    padding: 10px 30px;        /* Khoảng cách trên dưới */
+    
+    /* HIỆU ỨNG: Dính chặt lên đầu */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* Trang trí thêm */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--primary-color); /* Viền màu chủ đạo trên cùng */
+    border-bottom: 1px solid #ddd;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;         /* Khoảng cách giữa các nút */
+    padding: 10px 20px;
+    font-weight: 700;
+    
+    /* Nút bấm con bên trong vẫn bo tròn cho đẹp */
+    border-radius: 50px;    
+    
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-transform: uppercase;
     font-family: var(--font-body);
+    font-size: 14px;
 }
 
 nav a:hover {
@@ -139,12 +203,20 @@ nav a:hover {
     margin: 0 auto 80px;   /* Giữ nguyên căn giữa trên dưới */
     
     gap: 40px;             /* Tăng khoảng cách giữa 2 cột lên cho thoáng */
+    /* CHỈNH SỬA QUAN TRỌNG Ở ĐÂY: */
+    width: 98%;            /* Mở rộng ra 98% màn hình (gần như tràn viền) */
+    max-width: 100%;       /* BỎ LUÔN giới hạn pixel cũ (1000px) */
+    
+    margin: 0 auto 80px;   /* Giữ nguyên căn giữa trên dưới */
+    
+    gap: 40px;             /* Tăng khoảng cách giữa 2 cột lên 40px cho thoáng */
     align-items: flex-start;
 }
 
 /* CỘT TRÁI (NỘI DUNG CHÍNH) */
 .main-content {
     flex: 7;               /* Đổi thành tỉ lệ 7 phần (70%) cho rộng rãi */
+    flex: 75;              /* Chiếm 75% (3 phần 4) - Để nội dung chính rộng rãi */
     background-color: var(--white);
     padding: 40px;
     border-radius: var(--radius-box);
@@ -154,6 +226,7 @@ nav a:hover {
 /* CỘT PHẢI (THANH BÊN) */
 .sidebar {
     flex: 3;               /* Đổi thành tỉ lệ 3 phần (30%) */
+    flex: 25;              /* Chiếm 25% (1 phần 4) - Để sidebar gọn lại bên phải */
     background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
     padding: 30px;
     border-radius: var(--radius-box);
@@ -162,6 +235,7 @@ nav a:hover {
     position: sticky;
     top: 90px;             /* Chỉnh lại chút cho khớp với menu mới */
 }
+
 
 /* --- 6. TRANG TRÍ & TYPOGRAPHY MỚI --- */
 .main-content h2 {
@@ -188,6 +262,7 @@ nav a:hover {
 
 .main-content img:hover {
     transform: scale(1.02);     /* Phóng to ảnh nhẹ khi di chuột */
+    transform: scale(1.02);
 }
 
 .btn-police {
@@ -201,6 +276,16 @@ nav a:hover {
     margin-top: 10px;
     transition: 0.3s;
     font-family: var(--font-body);
+}
+
+.btn-police:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(217, 4, 41, 0.3);
+}
+
+.police-badge {
+    width: 70px;
+    margin-bottom: 10px;
 }
 
 .btn-police:hover {
@@ -264,6 +349,42 @@ strong {
 .dot.red { background: #ff5f57; }
 .dot.yellow { background: #ffbd2e; }
 .dot.green { background: #27c93f; }
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.bca-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(217, 4, 41, 0.9);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: var(--font-body);
+}
+
+.bca-preview:hover .hover-text {
+    opacity: 1;
+}
 
 .bca-preview img {
     width: 100%;
@@ -303,6 +424,7 @@ strong {
     }
     .container {
         flex-direction: column; /* Chuyển thành 1 cột dọc */
+        flex-direction: column;
         width: 90%;
     }
     .main-content, .sidebar {
@@ -313,6 +435,7 @@ strong {
     .sidebar {
         position: static;
         order: -1; /* Đẩy sidebar lên trên hoặc xuống dưới tùy ý */
+        order: -1;
     }
     nav {
         width: 90%;
@@ -324,6 +447,7 @@ strong {
     }
     .media-grid {
         grid-template-columns: 1fr; /* Tin tức thành 1 cột */
+        grid-template-columns: 1fr;
     }
 }
 
@@ -354,6 +478,10 @@ strong {
 .media-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Chia 2 cột tin tức */
+/* --- TIN TỨC --- */
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-bottom: 40px;
 }
@@ -400,6 +528,7 @@ strong {
 }
 
 /* --- BÁO NHÂN DÂN (WIDGET) --- */
+/* --- BÁO NHÂN DÂN --- */
 .nd-widget {
     border: 1px solid #ddd;
     border-radius: 15px;
@@ -433,6 +562,10 @@ strong {
 }
 
 /* Tùy chỉnh thanh cuộn (Scrollbar) cho đẹp */
+    overflow-y: auto;
+    padding: 15px;
+}
+
 .nd-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -485,6 +618,9 @@ strong {
     display: block;
     margin-top: 5px;
 }
+
+
+
 
 
 
