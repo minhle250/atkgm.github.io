@@ -1,6 +1,6 @@
 /* =========================================
-   STYLE.CSS - PHIÊN BẢN: BÁO CHÍ CHÍNH THỐNG
-   Layout: 7:3 | Font: Tinh tế | Header: Left
+   STYLE.CSS - BẢN FINAL: BEIGE OFFICIAL
+   Layout: 7:3 | Header: Trái | Nav: Tràn viền
    ========================================= */
 
 /* --- 0. RESET & CẤU HÌNH --- */
@@ -10,237 +10,251 @@
     box-sizing: border-box;
 }
 
-/* --- 1. FONTS & MÀU SẮC (TINH TẾ HƠN) --- */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap');
+/* --- 1. FONTS & MÀU SẮC (SANG TRỌNG) --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-    /* Palette màu An toàn - Uy tín (Tông Trầm) */
-    --primary-color: #5d4037;   /* Nâu Cafe đậm */
-    --secondary-color: #8d6e63; /* Nâu nhạt */
-    --highlight: #b71c1c;       /* Đỏ mận (Dùng cho điểm nhấn, không dùng đỏ tươi) */
-    --bg-body: #f7f5f2;         /* Màu nền giấy cũ nhẹ (Beige nhạt) */
-    --bg-white: #ffffff;
+    /* Tông màu Nâu/Beige "Chính phủ" */
+    --primary: #5d4037;     /* Nâu đậm (Chủ đạo) */
+    --accent: #8d6e63;      /* Nâu nhạt (Phụ) */
+    --highlight: #a1887f;   /* Nâu sáng (Hover) */
+    --bg-body: #f5f2eb;     /* Nền kem ấm áp */
+    --white: #ffffff;
+    --text-main: #333333;
     
-    --text-main: #222222;       /* Đen gần tuyệt đối cho dễ đọc */
-    --text-gray: #666666;
+    /* Font: Merriweather (Tiêu đề báo chí) + Inter (Nội dung hiện đại) */
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Inter', sans-serif;
     
-    /* Font: Combo kinh điển của báo chí */
-    --font-serif: 'Merriweather', serif;  /* Tiêu đề */
-    --font-sans: 'Roboto', sans-serif;    /* Nội dung */
-    
-    --shadow-soft: 0 4px 20px rgba(0,0,0,0.06); /* Bóng đổ cực nhẹ */
-    --radius-std: 8px; /* Bo góc nhẹ (Chuẩn báo chí hiện đại) */
+    --shadow: 0 4px 20px rgba(93, 64, 55, 0.08); /* Bóng đổ nâu nhẹ */
 }
 
 body {
     background-color: var(--bg-body);
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     color: var(--text-main);
-    line-height: 1.6; /* Giãn dòng thoáng */
-    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden; /* Chặn thanh cuộn ngang thừa */
 }
 
-/* --- 2. HEADER (CĂN TRÁI) --- */
+/* --- 2. HEADER (CĂN TRÁI - LEFT ALIGN) --- */
 header {
+    /* Đẩy chữ sang trái, canh thẳng hàng với nội dung bên dưới */
+    text-align: left; 
+    
+    /* Padding trái phải 10% để nội dung không dính mép màn hình */
+    padding: 60px 10%; 
+    
     background: url("beige.jpg") center/cover no-repeat, 
-                linear-gradient(to right, #eaddcf, #ece9e6); 
-    padding: 50px 0; /* Padding trên dưới */
-    border-bottom: 1px solid #dcdcdc;
-}
-
-/* Container ảo để căn lề nội dung Header thẳng hàng với Body */
-.header-inner {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: left; /* Căn trái theo yêu cầu */
+                linear-gradient(to right, #e6dedd, #d7ccc8);
+    border-bottom: 1px solid #d7ccc8;
 }
 
 h1 {
-    font-family: var(--font-serif);
-    font-size: 38px;
+    font-family: var(--font-heading);
+    font-size: 40px;
     font-weight: 900;
-    color: var(--primary-color);
+    color: var(--primary);
     text-transform: uppercase;
     letter-spacing: -0.5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     line-height: 1.2;
 }
 
 header p {
-    font-family: var(--font-sans);
-    color: var(--text-gray);
+    font-family: var(--font-body);
+    color: var(--accent);
     font-size: 16px;
     font-weight: 500;
-    border-left: 3px solid var(--highlight);
-    padding-left: 15px; /* Thụt đầu dòng tạo điểm nhấn */
+    /* Gạch đứng trang trí bên trái */
+    border-left: 4px solid var(--primary);
+    padding-left: 15px; 
 }
 
-/* --- 3. NAV (THANH ĐIỀU HƯỚNG) --- */
+/* --- 3. NAV (TRÀN VIỀN & UY TÍN) --- */
 nav {
-    background-color: var(--primary-color); /* Nền tối màu cho uy tín */
-    width: 100%;
+    width: 100%;             /* Tràn viền */
+    background-color: #fff;  /* Nền trắng sạch */
+    
+    /* Căn giữa các mục menu */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    /* Viền trên nâu đậm tạo cảm giác chắc chắn */
+    border-top: 5px solid var(--primary);
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+    /* DÍNH TRÊN ĐẦU (Sticky) */
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.nav-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start; /* Căn trái các mục menu */
-    flex-wrap: wrap;
 }
 
 nav a {
     text-decoration: none;
-    color: rgba(255,255,255,0.9);
-    padding: 15px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-family: var(--font-sans);
-    transition: all 0.3s ease;
-    border-right: 1px solid rgba(255,255,255,0.1); /* Vạch ngăn cách mờ */
-}
-
-nav a:hover, nav a.active {
-    background-color: var(--highlight); /* Hover ra màu đỏ mận */
-    color: #fff;
-}
-
-/* --- 4. BỐ CỤC CHÍNH (GRID 7:3) --- */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 40px auto;
+    color: var(--primary);
     
-    /* SỬ DỤNG CSS GRID - CHUẨN XÁC HƠN FLEXBOX */
-    display: grid;
-    grid-template-columns: 7fr 3fr; /* Tỉ lệ 7:3 */
-    gap: 40px; /* Khoảng cách (padding) giữa 2 cột */
+    /* Padding rộng rãi, cách đều các tab */
+    padding: 18px 30px; 
+    
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    
+    /* Đường kẻ mờ ngăn cách giữa các mục */
+    border-right: 1px solid #f0f0f0;
 }
 
-/* --- 5. MAIN CONTENT (CỘT TRÁI) --- */
+nav a:last-child { border-right: none; } /* Bỏ kẻ ở mục cuối */
+
+nav a:hover {
+    background-color: var(--primary); /* Di chuột vào nền nâu */
+    color: #fff; /* Chữ trắng */
+}
+
+/* --- 4. BỐ CỤC CHÍNH (TỈ LỆ 7:3) --- */
+.container {
+    /* Dùng Flexbox để chia cột */
+    display: flex;
+    
+    /* Canh chỉnh chiều rộng chuẩn */
+    width: 90%; 
+    max-width: 1200px; /* Giới hạn độ rộng tối đa để không bị bè ra trên màn hình lớn */
+    
+    /* KHOẢNG CÁCH QUAN TRỌNG: */
+    /* Cách Nav 60px (trên), Cách chân trang 80px (dưới), Tự động căn giữa (trái/phải) */
+    margin: 60px auto 80px; 
+    
+    /* Khoảng cách giữa Nội dung và Sidebar */
+    gap: 40px; 
+    
+    align-items: flex-start; /* Để cột ngắn không bị kéo dài theo cột dài */
+}
+
+/* CỘT TRÁI (NỘI DUNG CHÍNH) - Chiếm 7 phần */
 .main-content {
-    background-color: var(--bg-white);
-    padding: 40px;
-    border-radius: var(--radius-std);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid #eee; /* Viền mỏng tinh tế */
+    flex: 7; /* Tỉ lệ 7 */
+    background-color: var(--white);
+    padding: 40px; /* Khoảng cách nội dung bên trong */
+    border-radius: 8px; /* Bo góc nhẹ (Chuẩn báo chí) */
+    box-shadow: var(--shadow);
+    border: 1px solid #eee;
 }
 
+/* CỘT PHẢI (SIDEBAR) - Chiếm 3 phần */
+.sidebar {
+    flex: 3; /* Tỉ lệ 3 */
+    /* Sidebar trong suốt hoặc nền trắng tùy thích, ở đây để nền trắng cho nổi */
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    
+    /* Dính Sidebar khi cuộn (Option hay cho báo chí) */
+    position: sticky;
+    top: 80px; /* Cách menu dính một đoạn */
+}
+
+/* --- 5. TRANG TRÍ NỘI DUNG (TINH TẾ) --- */
 .main-content h2 {
-    font-family: var(--font-serif);
-    color: var(--primary-color);
-    font-size: 24px;
+    font-family: var(--font-heading);
+    color: var(--primary);
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    
+    /* Gạch chân dưới tiêu đề thay vì gạch trái */
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
-    margin-bottom: 20px;
     position: relative;
 }
 
-/* Gạch chân đỏ nhỏ dưới tiêu đề - Style báo chí */
-.main-content h2::after {
+.main-content h2::after { /* Gạch nâu ngắn dưới tiêu đề */
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: var(--highlight);
+    bottom: -2px; left: 0;
+    width: 60px; height: 2px;
+    background-color: var(--primary);
 }
 
 .main-content p {
+    text-align: justify; /* Căn đều 2 bên văn bản */
     margin-bottom: 20px;
-    text-align: justify; /* Căn đều 2 bên cho mượt */
+    font-size: 16px;
+    color: #444;
 }
 
 .main-content img {
     width: 100%;
     height: auto;
-    border-radius: 4px;
-    margin: 15px 0;
-    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    margin: 20px 0;
+    border: 1px solid #eee;
 }
 
-/* --- 6. SIDEBAR (CỘT PHẢI) --- */
-.sidebar {
-    /* Sidebar không cần nền trắng, để trong suốt hoặc nền nhẹ sẽ thoáng hơn */
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* Khoảng cách giữa các widget trong sidebar */
-}
-
-.widget {
-    background: var(--bg-white);
-    padding: 25px;
-    border-radius: var(--radius-std);
-    box-shadow: var(--shadow-soft);
-    border-top: 4px solid var(--secondary-color); /* Điểm nhấn trên đầu mỗi widget */
-}
-
-.widget h3 {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-    letter-spacing: 0.5px;
-}
-
-/* --- 7. CÁC THÀNH PHẦN KHÁC --- */
-
-/* Nút bấm (Style phẳng, hiện đại) */
+/* Nút bấm (Style Phẳng & Nghiêm túc) */
 .btn-police {
     display: inline-block;
-    background-color: var(--highlight);
+    background-color: var(--primary);
     color: #fff;
     text-decoration: none;
-    padding: 10px 24px;
-    border-radius: 4px; /* Bo nhẹ thôi */
-    font-weight: 500;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 600;
     margin-top: 15px;
-    transition: 0.2s;
-    font-size: 14px;
+    transition: 0.3s;
+    font-family: var(--font-body);
 }
 .btn-police:hover {
-    background-color: #9a1010;
-    transform: translateY(-1px);
+    background-color: #3e2723; /* Đậm hơn khi hover */
+    transform: translateY(-2px);
 }
 
-/* Footer */
+/* --- 6. FOOTER --- */
 footer {
-    background-color: var(--primary-color);
-    color: #ccc;
-    padding: 40px 0;
     text-align: center;
+    padding: 40px 0;
+    background-color: var(--primary);
+    color: #d7ccc8; /* Màu chữ sáng trên nền tối */
     font-size: 14px;
-    margin-top: 60px;
-    border-top: 5px solid var(--highlight);
+    margin-top: 0;
 }
 
-/* --- 8. RESPONSIVE (MOBILE) --- */
+/* --- 7. RESPONSIVE (MOBILE) --- */
 @media (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr; /* Về 1 cột */
-        gap: 30px;
+        flex-direction: column; /* Chuyển thành 1 cột dọc */
+        width: 95%;
+        margin-top: 30px;
     }
     
-    .nav-container {
-        justify-content: center; /* Mobile thì menu căn giữa lại cho đẹp */
-    }
-    
-    .header-inner {
-        text-align: center; /* Mobile header căn giữa */
+    header {
+        padding: 40px 20px;
+        text-align: center; /* Mobile thì Header về giữa lại cho đẹp */
     }
     
     header p {
-        border-left: none;
+        border-left: none; /* Bỏ gạch trang trí trên mobile */
         padding-left: 0;
+    }
+    
+    nav {
+        flex-direction: column; /* Menu dọc */
+    }
+    
+    nav a {
+        width: 100%;
+        text-align: center;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
+        padding: 15px 0;
+    }
+    
+    .sidebar {
+        position: static; /* Mobile không dính sidebar nữa */
     }
 }
