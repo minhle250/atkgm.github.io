@@ -7,7 +7,7 @@
 /* Quan trọng: Dòng này giúp web không bị vỡ khung hay thừa lề */
 * {
     margin: 0;
-    padding: 0;
+    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -74,7 +74,7 @@ nav {
     flex-wrap: wrap;
 
     /* Trang trí kiểu "Nhà nước" */
-    border-top: 5px solid var(--highlight);  /* Viền đỏ trên cùng */
+    border-top: 5px solid var(--primary-color);  /* Viền đỏ trên cùng */
     border-bottom: 1px solid #ccc;           /* Viền xám mờ bên dưới */
     
     /* Hiệu ứng dính (Sticky) - Menu luôn hiện khi cuộn */
@@ -405,6 +405,7 @@ strong {
 .nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
 
 
 
