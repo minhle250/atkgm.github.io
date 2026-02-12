@@ -2,10 +2,91 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Easter Egg nè m</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧊 PINGU SECRET | ARCTIC MODE</title>
+    <style>
+        /* CSS STYLE BẮC CỰC */
+        body {
+            margin: 0; padding: 0;
+            background: linear-gradient(180deg, #e0f7fa 0%, #80deea 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; min-height: 100vh; overflow: hidden;
+            color: #006064;
+        }
+
+        /* HIỆU ỨNG TUYẾT RƠI */
+        .snowflake {
+            position: fixed; top: -10px; z-index: 1;
+            color: white; font-size: 1em; pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(105vh) translateX(20px); }
+        }
+
+        /* KHUNG BĂNG (GLASSMORPHISM) */
+        .arctic-container {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 40px; text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            z-index: 2; width: 90%; max-width: 700px;
+        }
+
+        h1 { font-size: 1.5rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        a { color: #00838f; text-decoration: none; font-weight: bold; border-bottom: 2px solid; }
+        a:hover { color: #ff0000; }
+
+        /* KHUNG VIDEO PHONG CÁCH TẢNG BĂNG */
+        .video-wrapper {
+            margin: 20px 0; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+            background: #000; line-height: 0;
+        }
+        video { width: 100%; border-radius: 15px; }
+
+        .noot-button {
+            background: #00bcd4; color: white; border: none;
+            padding: 15px 30px; border-radius: 50px;
+            font-size: 1.2rem; font-weight: bold; cursor: pointer;
+            transition: 0.3s; margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+        }
+        .noot-button:hover { transform: scale(1.1); background: #00acc1; }
+    </style>
 </head>
 <body>
-    <h1> Code trang web hiện không có sẵn, liên hệ với <a href ="https://instagram.com/starlinetouren/">ohmymihhh</a> </h1>
-    <p>nút nút! 🐧</p>
+
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.innerHTML = '❄';
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.opacity = Math.random();
+            document.body.appendChild(snowflake);
+            setTimeout(() => snowflake.remove(), 5000);
+        }
+        setInterval(createSnowflake, 100);
+    </script>
+
+    <div class="arctic-container">
+        <h1>🐧 Pingu Access Detected 🐧</h1>
+        
+        <p>Hệ thống hiện không có sẵn, liên hệ <a href="https://instagram.com/starlinetouren/">ohmymihhh</a> để mở khóa.</p>
+
+        <div class="video-wrapper">
+            <video controls autoplay muted loop>
+                <source src="YTDown.com_YouTube_Pingu-Opening-1986_Media_so1q5pgmAy8_001_720p.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <button class="noot-button" onclick="alert('NOOT NOOT! 🎺')">NOOT NOOT! 🎺</button>
+    </div>
+
 </body>
 </html>

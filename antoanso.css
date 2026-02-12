@@ -4,10 +4,22 @@
    ========================================= */
 
 /* --- 0. IMPORT FONTS (Google Fonts) --- */
+/* Nhúng font Merriweather (cho tiêu đề) và Inter (cho nội dung) từ Google */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600&display=swap');
 
 /* --- 1. KHAI BÁO BIẾN (DESIGN SYSTEM) --- */
+/* Nơi quy định màu sắc và thông số chung cho toàn web, sửa ở đây là đổi cả web */
 :root {
+    --primary-color: #5d4037;   /* Nâu Cafe - Màu chủ đạo */
+    --accent-color: #8d6e63;    /* Nâu Hồng - Màu phụ trợ */
+    --highlight: #d90429;       /* Đỏ cờ - Dùng cho điểm nhấn quan trọng */
+    --text-color: #4a4a4a;      /* Xám đậm - Màu chữ dễ đọc */
+    --bg-color: #f5f2eb;        /* Kem ấm - Màu nền website */
+    --white: #ffffff;           /* Màu trắng chuẩn */
+    --radius-box: 30px;         /* Độ bo tròn góc cho các khối nội dung */
+    --shadow: 0 10px 30px rgba(93, 64, 55, 0.1); /* Hiệu ứng bóng đổ */
+
+    /* Biến Font chữ */
     --primary-color: #5d4037;   /* Nâu Cafe */
     --accent-color: #8d6e63;    /* Nâu Hồng */
     --highlight: #d90429;       /* Đỏ cờ */
@@ -24,6 +36,12 @@
 
 /* --- 2. CẤU TRÚC CHUNG --- */
 body {
+    margin: 0;                  /* Xóa lề mặc định của trình duyệt */
+    background-color: var(--bg-color); /* Đặt màu nền kem */
+    font-family: var(--font-body);     /* Set font mặc định là Inter */
+    color: var(--text-color);   /* Màu chữ chung */
+    line-height: 1.6;           /* Khoảng cách dòng cho dễ đọc */
+    overflow-x: hidden;         /* Chặn thanh cuộn ngang nếu nội dung bị tràn */
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Chặn thanh cuộn ngang thừa */
@@ -34,27 +52,42 @@ body {
     line-height: 1.6;
 }
 
+/* --- 3. HEADER (PHẦN ĐẦU TRANG) --- */
 /* --- 3. HEADER --- */
 header {
     text-align: left;
+    
+    /* SỬA DÒNG NÀY: */
+    /* 60px(Trên) 20px(Phải) 80px(Dưới) 180px(Trái - Chừa chỗ to cho Logo) */
+    padding: 60px 20px 80px 180px; 
+    
+    /* THÊM DÒNG NÀY: Để sau này đặt logo (position: absolute) nó sẽ nằm gọn trong header */
+    position: relative; 
+    
+    /* Ảnh nền kết hợp Gradient màu loang */
     padding: 60px 20px 80px;
     background: url("beige.jpg") center/cover no-repeat,
                 linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
+    
+    /* Bo tròn 2 góc dưới của header */
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+    
+    box-shadow: var(--shadow);  /* Đổ bóng cho header nổi lên */
+    margin-bottom: -50px;       /* Đẩy header lấn xuống dưới một chút */
     box-shadow: var(--shadow);
     margin-bottom: -50px;
 }
 
+
 h1 {
-    /* Áp dụng font Tiêu đề */
-    font-family: var(--font-heading);
-    font-size: 42px;
-    font-weight: 900; /* Đậm hơn chút cho uy lực */
+    font-family: var(--font-heading); /* Dùng font Merriweather */
+    font-size: 42px;            /* Kích thước chữ lớn */
+    font-weight: 900;           /* Độ đậm cao nhất */
     color: var(--primary-color);
     margin: 0;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
+    text-transform: uppercase;  /* Viết hoa toàn bộ */
+    letter-spacing: -0.5px;     /* Thu hẹp khoảng cách chữ xíu cho chặt chẽ */
 }
 
 header p {
@@ -77,6 +110,36 @@ header p {
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); 
 }
 
+/* --- 4. MENU (NAV) --- */
+nav {
+    display: flex;              /* Dùng Flexbox để dàn trang menu */
+    justify-content: center;    /* Căn giữa các nút menu */
+    flex-wrap: wrap;            /* Tự xuống dòng nếu màn hình bé */
+    background-color: var(--white);
+    
+    /* [CẤU HÌNH TRÀN VIỀN] */
+    width: 100%;                /* Chiều rộng 100% màn hình */
+    max-width: 100%;            /* Bỏ giới hạn chiều rộng cũ */
+    margin: 0 auto 60px;        /* Cách nội dung bên dưới 60px */
+    
+    padding: 15px 0;            /* Đệm trên dưới 15px */
+    border-radius: 0;           /* Vuông góc (không bo tròn) để dính lề */
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Bóng đổ nhẹ */
+    position: sticky;           /* Hiệu ứng dính menu khi cuộn chuột */
+    top: 0;                     /* Dính sát mép trên cùng */
+    z-index: 1000;              /* Lớp ưu tiên cao nhất (nổi lên trên tất cả) */
+}
+
+nav a {
+    text-decoration: none;      /* Bỏ gạch chân link */
+    color: #000;                /* Màu chữ đen */
+    margin: 0 10px;             /* Khoảng cách giữa các nút */
+    padding: 10px 20px;         /* Độ phồng của nút */
+    font-weight: 600;           /* Chữ đậm */
+    border-radius: 50px;        /* Bo tròn nút menu hình viên thuốc */
+    transition: all 0.3s ease;  /* Hiệu ứng chuyển động mượt */
+    white-space: nowrap;        /* Không cho chữ xuống dòng */
 /* --- 4. MENU (NAV) - ĐÃ SỬA TRÀN VIỀN --- */
 nav {
     /* KÍCH THƯỚC: Trải hết màn hình */
@@ -124,15 +187,22 @@ nav a {
 }
 
 nav a:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-    transform: translateY(-2px);
+    background-color: var(--primary-color); /* Nền nâu khi di chuột */
+    color: var(--white);        /* Chữ trắng khi di chuột */
+    transform: translateY(-2px);/* Nút nảy lên nhẹ */
 }
 
 /* --- 5. BỐ CỤC CHIA CỘT (LAYOUT) --- */
 .container {
     display: flex;
     
+    /* CHỈNH SỬA Ở ĐÂY: Trải rộng ra hai bên */
+    width: 96%;            /* Chiếm 96% màn hình (chừa lề 2% mỗi bên cho cân đối) */
+    max-width: 1280px;     /* Giới hạn tối đa rộng hơn (trước là 1000px) */
+    
+    margin: 0 auto 80px;   /* Giữ nguyên căn giữa trên dưới */
+    
+    gap: 40px;             /* Tăng khoảng cách giữa 2 cột lên cho thoáng */
     /* CHỈNH SỬA QUAN TRỌNG Ở ĐÂY: */
     width: 98%;            /* Mở rộng ra 98% màn hình (gần như tràn viền) */
     max-width: 100%;       /* BỎ LUÔN giới hạn pixel cũ (1000px) */
@@ -145,6 +215,7 @@ nav a:hover {
 
 /* CỘT TRÁI (NỘI DUNG CHÍNH) */
 .main-content {
+    flex: 7;               /* Đổi thành tỉ lệ 7 phần (70%) cho rộng rãi */
     flex: 75;              /* Chiếm 75% (3 phần 4) - Để nội dung chính rộng rãi */
     background-color: var(--white);
     padding: 40px;
@@ -154,6 +225,7 @@ nav a:hover {
 
 /* CỘT PHẢI (THANH BÊN) */
 .sidebar {
+    flex: 3;               /* Đổi thành tỉ lệ 3 phần (30%) */
     flex: 25;              /* Chiếm 25% (1 phần 4) - Để sidebar gọn lại bên phải */
     background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
     padding: 30px;
@@ -161,15 +233,15 @@ nav a:hover {
     border: 1px solid #e0e0e0;
     text-align: center;
     position: sticky;
-    top: 20px;
+    top: 90px;             /* Chỉnh lại chút cho khớp với menu mới */
 }
 
 
 /* --- 6. TRANG TRÍ & TYPOGRAPHY MỚI --- */
 .main-content h2 {
-    font-family: var(--font-heading); /* Font tiêu đề */
+    font-family: var(--font-heading);
     color: var(--accent-color);
-    border-left: 5px solid var(--primary-color);
+    border-left: 5px solid var(--primary-color); /* Gạch dọc bên trái tiêu đề */
     padding-left: 15px;
     margin-top: 0;
     font-weight: 700;
@@ -182,13 +254,14 @@ nav a:hover {
 }
 
 .main-content img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
+    width: 100%;                /* Ảnh co giãn theo khung */
+    height: auto;               /* Chiều cao tự động */
+    border-radius: 20px;        /* Bo góc ảnh */
     transition: transform 0.3s;
 }
 
 .main-content img:hover {
+    transform: scale(1.02);     /* Phóng to ảnh nhẹ khi di chuột */
     transform: scale(1.02);
 }
 
@@ -197,7 +270,7 @@ nav a:hover {
     background-color: var(--highlight);
     color: #ffda00;
     text-decoration: none;
-    padding: 12px 24px; /* To hơn chút cho dễ bấm */
+    padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
     margin-top: 10px;
@@ -215,13 +288,23 @@ nav a:hover {
     margin-bottom: 10px;
 }
 
-/* --- 7. FOOTER --- */
+.btn-police:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(217, 4, 41, 0.3);
+}
+
+.police-badge {
+    width: 70px;
+    margin-bottom: 10px;
+}
+
+/* --- 7. FOOTER (CHÂN TRANG) --- */
 footer {
     text-align: center;
     padding: 30px 0;
     color: var(--accent-color);
     background: url("60+ Marble Texture Aesthetic Backgrounds (Free Download, High-Res).jpg") center/cover;
-    border-radius: 30px 30px 0 0;
+    border-radius: 30px 30px 0 0; /* Chỉ bo tròn 2 góc trên */
 }
 
 strong {
@@ -230,7 +313,7 @@ strong {
     border-radius: 4px;
 }
 
-/* --- KHUNG PREVIEW WEB --- */
+/* --- KHUNG PREVIEW WEB (MÔ PHỎNG TRÌNH DUYỆT) --- */
 .bca-preview {
     display: block;
     width: 100%;
@@ -261,6 +344,11 @@ strong {
     border-bottom: 1px solid #ccc;
 }
 
+/* 3 chấm giả lập nút đóng/mở cửa sổ */
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
 .dot {
     width: 8px;
     height: 8px;
@@ -298,7 +386,34 @@ strong {
     opacity: 1;
 }
 
-/* --- RESPONSIVE MOBILE --- */
+.bca-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.hover-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(217, 4, 41, 0.9);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: var(--font-body);
+}
+
+.bca-preview:hover .hover-text {
+    opacity: 1; /* Hiện chữ khi di chuột vào */
+}
+
+/* --- RESPONSIVE MOBILE (GIAO DIỆN ĐIỆN THOẠI) --- */
 @media (max-width: 768px) {
     h1 {
         font-size: 26px;
@@ -308,6 +423,7 @@ strong {
         padding-top: 40px;
     }
     .container {
+        flex-direction: column; /* Chuyển thành 1 cột dọc */
         flex-direction: column;
         width: 90%;
     }
@@ -318,6 +434,7 @@ strong {
     }
     .sidebar {
         position: static;
+        order: -1; /* Đẩy sidebar lên trên hoặc xuống dưới tùy ý */
         order: -1;
     }
     nav {
@@ -329,11 +446,12 @@ strong {
         padding: 8px 12px;
     }
     .media-grid {
+        grid-template-columns: 1fr; /* Tin tức thành 1 cột */
         grid-template-columns: 1fr;
     }
 }
 
-/* --- KHỐI TÔN VINH --- */
+/* --- KHỐI TÔN VINH (GÓC SIDEBAR) --- */
 .quote-box-sidebar {
     background: linear-gradient(135deg, #d90429 0%, #b71c1c 100%);
     color: white;
@@ -347,7 +465,7 @@ strong {
 }
 
 .quote-box-sidebar::before {
-    content: "★";
+    content: "★"; /* Ngôi sao chìm trang trí */
     position: absolute;
     top: -10px;
     right: -10px;
@@ -356,6 +474,10 @@ strong {
     transform: rotate(15deg);
 }
 
+/* --- TIN TỨC (GRID) --- */
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia 2 cột tin tức */
 /* --- TIN TỨC --- */
 .media-grid {
     display: grid;
@@ -405,6 +527,7 @@ strong {
     margin: 0;
 }
 
+/* --- BÁO NHÂN DÂN (WIDGET) --- */
 /* --- BÁO NHÂN DÂN --- */
 .nd-widget {
     border: 1px solid #ddd;
@@ -434,6 +557,11 @@ strong {
 
 .nd-content {
     height: 400px;
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    padding: 15px;
+}
+
+/* Tùy chỉnh thanh cuộn (Scrollbar) cho đẹp */
     overflow-y: auto;
     padding: 15px;
 }
