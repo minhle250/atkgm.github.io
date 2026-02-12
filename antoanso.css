@@ -1,293 +1,334 @@
 /* =========================================
-   STYLE.CSS - BẢN FIX LỖI LỆCH (ALIGNMENT FIX)
-   Nguyên tắc: Tất cả nội dung đều nằm trong khung 1200px giữa màn hình
+   STYLE.CSS - GIAO DIỆN WEBSITE AN TOÀN SỐ
+   Phiên bản: "Truyền thống" nâng cấp (Nav tràn viền + MacOS Window)
    ========================================= */
 
-/* --- 0. RESET --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* --- 0. CẤU HÌNH CƠ BẢN (RESET) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* --- 1. CẤU HÌNH CHUNG --- */
+/* --- 1. IMPORT FONTS & BIẾN MÀU SẮC --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
 :root {
-    --primary: #5d4037;
-    --accent: #8d6e63;
-    --bg-body: #f5f2eb;
+    /* GIỮ NGUYÊN BẢNG MÀU CŨ */
+    --primary-color: #5d4037;   /* Nâu Cafe */
+    --accent-color: #8d6e63;    /* Nâu Hồng */
+    --highlight: #d90429;       /* Đỏ cờ (Dùng tiết chế) */
+    --text-color: #4a4a4a;      /* Xám đậm */
+    --bg-color: #f5f2eb;        /* Kem ấm */
     --white: #ffffff;
+    --radius-box: 30px;         /* Bo góc đặc trưng */
+    --shadow: 0 10px 30px rgba(93, 64, 55, 0.1);
+    
+    /* Font Variables */
     --font-heading: 'Merriweather', serif;
     --font-body: 'Inter', sans-serif;
     
-    /* QUAN TRỌNG: Quy định chiều rộng chuẩn cho toàn bộ web */
-    --site-width: 1200px; 
+    /* Biến chiều rộng chuẩn */
+    --site-width: 1200px;
 }
 
+/* --- 2. CẤU TRÚC CHUNG --- */
 body {
-    background-color: var(--bg-body);
+    background-color: var(--bg-color);
     font-family: var(--font-body);
-    color: #333;
+    color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* --- 2. HEADER (ĐÃ SỬA CĂN CHỈNH) --- */
+/* --- 3. HEADER (GIỮ NGUYÊN STYLE CŨ NHƯNG CĂN CHỈNH LẠI) --- */
 header {
-    width: 100%;
-    /* Bỏ padding trái phải 10% cũ đi, chỉ giữ padding trên dưới */
-    padding: 60px 0; 
-    
-    background: url("beige.jpg") center/cover no-repeat, 
-                linear-gradient(to right, #e6dedd, #d7ccc8);
-    border-bottom: 1px solid #d7ccc8;
-    
-    /* Flexbox để căn giữa cái khung nội dung bên trong */
+    /* Căn giữa nội dung bên trong */
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
+    
+    padding: 60px 0 80px; /* Padding trên dưới */
+    
+    background: url("beige.jpg") center/cover no-repeat, 
+                linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: var(--shadow);
+    /* Bỏ margin-bottom âm để tránh lỗi layout với nav mới */
 }
 
-/* Tạo một cái khung ảo cho tiêu đề để nó thẳng hàng với bên dưới */
-header h1, header p {
-    width: 90%; /* Chiếm 90% màn hình mobile */
-    max-width: var(--site-width); /* Nhưng không quá 1200px trên PC */
-    text-align: left; /* Chữ căn trái */
+/* Khung ảo để Header thẳng hàng với Body */
+.header-content {
+    width: 90%;
+    max-width: var(--site-width);
+    text-align: center; /* Vẫn giữ căn giữa cho Header vì nó đẹp hơn với bo tròn */
 }
 
-header h1 {
+h1 {
     font-family: var(--font-heading);
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 900;
-    color: var(--primary);
+    color: var(--primary-color);
+    margin: 0;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    letter-spacing: -0.5px;
 }
 
 header p {
-    font-family: var(--font-body);
-    color: var(--accent);
+    color: var(--accent-color);
     font-size: 16px;
-    border-left: 4px solid var(--primary);
-    padding-left: 15px;
+    font-weight: 500;
+    margin-top: 10px;
 }
 
-/* --- 3. NAV (MENU) - THẲNG HÀNG VỚI HEADER --- */
+/* --- 4. MENU (NAV) - TRÀN VIỀN NHƯNG MÀU SẮC HÀI HÒA --- */
 nav {
     width: 100%;
-    background-color: #fff;
-    border-top: 5px solid var(--primary);
+    background-color: var(--white); /* Nền trắng sạch */
+    
+    /* Viền trên dùng màu Nâu chủ đạo thay vì đỏ chói */
+    border-top: 5px solid var(--primary-color);
     border-bottom: 1px solid #e0e0e0;
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    
+    display: flex;
+    justify-content: center; /* Căn giữa các mục menu */
+    
     position: sticky;
     top: 0;
     z-index: 1000;
-    
-    /* Căn giữa thanh menu */
-    display: flex;
-    justify-content: center;
 }
 
-/* Đây là cái khung ảo bọc các nút menu, giúp nó thẳng hàng với Header */
-.nav-inner {
-    width: 90%;
-    max-width: var(--site-width); /* Khớp với 1200px của Header */
-    display: flex;
-    justify-content: flex-start; /* Căn trái các nút */
-    flex-wrap: wrap;
-}
-
-/* MẸO: Vì m không sửa HTML được để thêm div .nav-inner, 
-   ta dùng CSS áp trực tiếp lên nav nhưng chỉnh lại cách hiển thị */
-nav {
-    display: block; /* Trả về dạng block để padding hoạt động đúng */
-    padding: 0;
-    text-align: center; /* Để cái khung bên trong ra giữa */
-}
-
-/* SỬ DỤNG MẸO CĂN CHỈNH CHO CÁC THẺ A */
 nav a {
-    display: inline-block; /* Để nó nằm ngang */
     text-decoration: none;
-    color: var(--primary);
-    padding: 18px 25px;
+    color: var(--primary-color); /* Chữ màu nâu */
+    padding: 15px 25px;
+    margin: 0 5px; /* Khoảng cách nhỏ giữa các nút */
+    
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
-    border-right: 1px solid #f0f0f0;
-    transition: 0.3s;
-}
-
-/* KHẮC PHỤC LỖI LỆCH CỦA NAV:
-   Để Nav thẳng hàng với Body 1200px, ta cần bọc nó lại.
-   Nhưng nếu m lười sửa HTML, ta sẽ dùng padding động */
-   
-@media (min-width: 1300px) {
-    nav {
-        /* Tính toán padding để đẩy nội dung vào giữa khớp với 1200px */
-        padding-left: calc((100% - 1200px) / 2); 
-        padding-right: calc((100% - 1200px) / 2);
-        text-align: left; /* Căn trái nội dung bên trong */
-    }
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+    
+    /* Bo góc nhẹ khi hover cho hợp với theme */
+    border-radius: 4px; 
 }
 
 nav a:hover {
-    background-color: var(--primary);
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px); /* Hiệu ứng nhún nhẹ cũ */
 }
 
-/* --- 1. SỬA LẠI CONTAINER CHO ĐỒNG BỘ (FIX LỆCH) --- */
+/* --- 5. BỐ CỤC CHÍNH (CONTAINER) - ĐÃ FIX LỆCH --- */
 .container {
     display: flex;
     
-    /* Dùng biến width chuẩn đã khai báo (1200px) */
     width: 90%;
-    max-width: 1200px; /* Hoặc var(--site-width) nếu m đã khai báo */
+    max-width: var(--site-width); /* Chốt cứng chiều rộng */
     
-    margin: 60px auto 80px; /* Căn giữa màn hình */
-    gap: 40px; /* Khoảng cách giữa cột Nội dung và Sidebar */
-    align-items: flex-start; /* Chống bị kéo dãn chiều cao */
+    margin: 50px auto 80px; /* Cách Nav 50px */
+    gap: 40px;
+    align-items: flex-start;
 }
 
-/* Đảm bảo tỉ lệ 7:3 không bị vỡ */
+/* CỘT TRÁI (MAIN) */
 .main-content {
-    flex: 7;
-    width: 70%; /* Fallback cho trình duyệt cũ */
+    flex: 7; /* Tỉ lệ 7 */
     background-color: var(--white);
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
+    border-radius: var(--radius-box); /* Giữ bo góc 30px */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
+/* CỘT PHẢI (SIDEBAR) */
 .sidebar {
-    flex: 3;
-    width: 30%; /* Fallback */
+    flex: 3; /* Tỉ lệ 3 */
+    /* Sidebar trong suốt hoặc nền nhẹ để thoáng */
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Khoảng cách giữa các widget trong sidebar */
+    gap: 30px;
     
-    /* Sticky sidebar (tùy chọn) */
     position: sticky;
-    top: 100px; 
+    top: 80px;
 }
 
-
-/* --- 2. GIAO DIỆN MACOS WINDOW (CHỨA ẢNH VIETNAM & LOGO) --- */
+/* --- 6. GIAO DIỆN MACOS WINDOW (MỚI) --- */
 .macos-window {
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Bóng đổ sâu cho giống cửa sổ nổi */
+    border-radius: 12px; /* Bo góc vừa phải */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     overflow: hidden;
-    border: 1px solid #d1d1d1;
+    border: 1px solid #e0e0e0;
     margin-bottom: 30px;
 }
 
-/* Thanh tiêu đề giả lập MacOS */
 .window-bar {
-    background: #e8e8e8; /* Màu xám đặc trưng */
-    height: 30px;
+    background: #f0f0f0;
+    height: 32px;
     display: flex;
     align-items: center;
     padding-left: 12px;
     gap: 8px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
 }
 
-/* 3 chấm đèn giao thông */
 .dot { width: 12px; height: 12px; border-radius: 50%; }
 .dot.red { background: #ff5f56; border: 1px solid #e0443e; }
 .dot.yellow { background: #ffbd2e; border: 1px solid #dea123; }
 .dot.green { background: #27c93f; border: 1px solid #1aab29; }
 
-/* Phần nội dung chứa ảnh */
 .window-content {
-    position: relative; /* Để căn logo tuyệt đối bên trong */
+    position: relative;
     width: 100%;
-    height: 250px; /* Chiều cao cố định hoặc auto tùy m */
+    height: 220px; /* Chiều cao cố định */
     overflow: hidden;
 }
 
-/* Ảnh nền Vietnam.jpg */
 .bg-vietnam {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cắt ảnh cho vừa khung */
-    display: block;
-    filter: brightness(0.9); /* Làm tối nhẹ để logo nổi hơn */
+    object-fit: cover;
+    filter: brightness(0.9);
 }
 
-/* Logo Công An (Đè lên trên) */
 .overlay-logo {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Căn chính giữa tâm */
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     width: 80px; /* Kích thước logo */
-    height: auto;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); /* Bóng đổ cho logo nổi bật */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
     transition: transform 0.3s;
 }
+.window-content:hover .overlay-logo { transform: translate(-50%, -50%) scale(1.1); }
 
-.window-content:hover .overlay-logo {
-    transform: translate(-50%, -50%) scale(1.1); /* Phóng to nhẹ khi di chuột */
-}
-
-
-/* --- 3. WIDGET TÔN VINH BÁC (STYLE TRANG TRỌNG) --- */
+/* --- 7. WIDGET TÔN VINH BÁC (MỚI) --- */
 .tribute-card {
-    background: linear-gradient(135deg, #5d4037 0%, #3e2723 100%); /* Nâu chủ đạo */
+    background: linear-gradient(135deg, #5d4037 0%, #4e342e 100%);
     color: #fff;
-    border-radius: 8px;
-    padding: 25px;
+    border-radius: 20px; /* Bo góc lớn cho hợp theme */
+    padding: 30px 20px;
     text-align: center;
-    border: 1px solid #8d6e63;
+    border: 2px solid #a1887f;
     position: relative;
     overflow: hidden;
-}
-
-/* Họa tiết hoa sen chìm (nếu có) hoặc hiệu ứng ánh sáng */
-.tribute-card::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 60%);
-    pointer-events: none;
+    box-shadow: 0 10px 20px rgba(93, 64, 55, 0.3);
 }
 
 .tribute-img {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
-    border: 3px solid #ffca28; /* Viền vàng kim */
+    border: 3px solid #ffca28; /* Viền vàng */
     object-fit: cover;
     margin-bottom: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .tribute-title {
-    font-family: var(--font-heading); /* Font Merriweather */
-    font-size: 14px;
+    font-family: var(--font-heading);
+    font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #ffca28; /* Màu vàng */
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    color: #ffca28;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
 }
 
 .tribute-quote {
-    font-family: var(--font-body);
+    font-family: var(--font-heading); /* Dùng font có chân cho trang trọng */
     font-style: italic;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.5;
-    color: #e0e0e0;
+    color: #efebe9;
+    margin-top: 10px;
 }
 
-/* Footer */
+/* --- 8. TRANG TRÍ NỘI DUNG --- */
+.main-content h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 26px;
+    font-weight: 700;
+    
+    /* Style gạch chân dưới */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    position: relative;
+}
+.main-content h2::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 60px; height: 2px; background-color: var(--primary-color);
+}
+
+.main-content h3 {
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.main-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px; /* Giữ bo góc lớn của ảnh */
+    margin: 20px 0;
+    border: 1px solid #eee;
+}
+
+/* Nút bấm */
+.btn-police {
+    display: inline-block;
+    background-color: var(--highlight);
+    color: #fff; /* Chữ trắng cho dễ đọc */
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: 0.3s;
+    font-family: var(--font-body);
+    box-shadow: 0 5px 15px rgba(217, 4, 41, 0.2);
+}
+.btn-police:hover { 
+    transform: translateY(-2px);
+    background-color: #b71c1c; 
+}
+
+/* --- 9. FOOTER --- */
 footer {
-    text-align: center; padding: 40px 0; background: var(--primary); color: #d7ccc8; margin-top: 0;
+    text-align: center;
+    padding: 40px 0;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 30px 30px 0 0;
+    margin-top: 40px;
 }
 
-/* Mobile */
+strong { color: var(--highlight); }
+
+/* --- 10. RESPONSIVE --- */
 @media (max-width: 768px) {
-    .container { flex-direction: column; }
-    nav { padding: 0 !important; text-align: center; } /* Mobile thì bỏ căn chỉnh phức tạp */
-    nav a { display: block; width: 100%; border-bottom: 1px solid #eee; border-right: none; }
-    header h1, header p { text-align: center; } /* Mobile căn giữa cho đẹp */
-    header p { border-left: none; padding-left: 0; }
+    .container {
+        flex-direction: column;
+        width: 90%;
+        margin-top: 30px;
+    }
+    nav {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+    .header-content { width: 100%; }
+    .sidebar { position: static; }
 }
-
