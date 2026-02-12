@@ -67,41 +67,45 @@ header p {
 /* --- 4. MENU (NAV) --- */
 nav {
     /* KÍCH THƯỚC: Trải hết màn hình */
-    width: 100%;  
+    width: 100%;
     height: auto;
-    
+
     /* BỐ CỤC: Dàn quân */
     display: flex;
-    justify-content: center; /* Items nằm giữa (Chuẩn) */
-    /* Hoặc dùng: justify-content: space-between; (Nếu muốn Items dạt sang 2 bên lề) */
-    
+    justify-content: center; /* Các mục nằm giữa (Muốn dạt sang 2 bên thì sửa thành space-between) */
     align-items: center;
     flex-wrap: wrap;
 
-    /* GIAO DIỆN: Vuông vức mới trải được */
-    background-color: var(--white); 
-    border-radius: 0; /* QUAN TRỌNG: Không bo góc nữa */
-    
-    /* Dính chặt lên đầu (Tùy chọn) */
+    /* GIAO DIỆN: Vuông vức để trải tràn viền */
+    background-color: var(--white);
+    border-radius: 0;       /* QUAN TRỌNG: Vuông góc, không bo tròn */
+    margin: 0;              /* QUAN TRỌNG: Xóa lề để chạm mép */
+    padding: 10px 0;        /* Khoảng cách trên dưới */
+
+    /* HIỆU ỨNG: Dính chặt lên đầu */
     position: sticky;
     top: 0;
     z-index: 1000;
-    
-    /* Trang trí thêm */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    /* TRANG TRÍ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #ddd;
 }
 
 nav a {
     text-decoration: none;
     color: #000;
-    margin: 5px;
-    padding: 8px 15px;
+    margin: 5px 10px;       /* Cách nhau ra một chút cho thoáng */
+    padding: 8px 20px;
     font-weight: 600;
-    border-radius: 50px;
+    
+    /* Nút bấm vẫn giữ bo tròn cho mềm mại */
+    border-radius: 50px;    
+    
     transition: all 0.3s ease;
     white-space: nowrap;
-    /* Menu dùng font body cho dễ đọc */
+    
+    /* Font chữ */
     font-family: var(--font-body);
 }
 
@@ -110,7 +114,6 @@ nav a:hover {
     color: var(--white);
     transform: translateY(-2px);
 }
-
 /* --- 5. BỐ CỤC CHIA CỘT (LAYOUT) --- */
 .container {
     display: flex;
@@ -467,3 +470,4 @@ strong {
     display: block;
     margin-top: 5px;
 }
+
