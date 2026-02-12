@@ -80,7 +80,7 @@ nav {
     background-color: var(--white); 
     border-radius: 0;       /* QUAN TRỌNG: Vuông góc, không bo tròn */
     margin: 0;              /* QUAN TRỌNG: Sát lề */
-    padding: 15px 0;        /* Khoảng cách trên dưới */
+    padding: 10px 30px;        /* Khoảng cách trên dưới */
     
     /* HIỆU ỨNG: Dính chặt lên đầu */
     position: sticky;
@@ -472,6 +472,7 @@ strong {
     display: block;
     margin-top: 5px;
 }
+
 
 
 
