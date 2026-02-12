@@ -1,9 +1,10 @@
 /* =========================================
    STYLE.CSS - GIAO DIỆN WEBSITE AN TOÀN SỐ
-   Phiên bản: Uy tín, Tràn viền & Tông màu Beige/Nâu
+   Updated: Phong cách Chính thống & Code Chuẩn SGK
    ========================================= */
 
-/* --- 0. RESET CƠ BẢN --- */
+/* --- 0. CẤU HÌNH CƠ BẢN (RESET) --- */
+/* Quan trọng: Dòng này giúp web không bị vỡ khung hay thừa lề */
 * {
     margin: 0;
     padding: 0;
@@ -13,20 +14,18 @@
 /* --- 1. IMPORT FONTS --- */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600&display=swap');
 
-/* --- 2. KHAI BÁO BIẾN (PALETTE MÀU HÀI HÒA) --- */
+/* --- 2. KHAI BÁO BIẾN MÀU SẮC --- */
 :root {
-    --primary-color: #5d4037;   /* Nâu Cafe Đậm (Dùng làm màu chính thay đỏ) */
-    --accent-color: #8d6e63;    /* Nâu Hồng (Màu phụ) */
-    --highlight: #bc4749;       /* Đỏ Trầm (Thay cho đỏ cờ chói lọi) */
-    --text-color: #4a4a4a;      /* Xám đậm */
-    --bg-color: #f5f2eb;        /* Kem ấm (Beige) */
+    --primary-color: #5d4037;   /* Nâu Cafe - Màu chính */
+    --accent-color: #8d6e63;    /* Nâu Hồng - Màu phụ */
+    --highlight: #d90429;       /* Đỏ cờ - Điểm nhấn quan trọng */
+    --text-color: #333333;      /* Màu chữ đen xám dễ đọc */
+    --bg-color: #f5f2eb;        /* Màu nền kem nhẹ */
     --white: #ffffff;
-    --radius-box: 30px;         
-    --shadow: 0 10px 30px rgba(93, 64, 55, 0.08); /* Bóng đổ màu nâu nhạt */
-
+    
     /* Font chữ */
-    --font-heading: 'Merriweather', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Merriweather', serif;  /* Tiêu đề có chân (Sang trọng) */
+    --font-body: 'Inter', sans-serif;       /* Nội dung không chân (Hiện đại) */
 }
 
 /* --- 3. CẤU TRÚC CHUNG --- */
@@ -35,270 +34,163 @@ body {
     font-family: var(--font-body);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* --- 4. HEADER --- */
+/* --- 4. HEADER (PHẦN ĐẦU TRANG) --- */
 header {
     text-align: center;
-    padding: 50px 20px 70px;
+    padding: 40px 20px;
+    /* Ảnh nền + Màu loang nhẹ */
     background: url("beige.jpg") center/cover no-repeat, 
                 linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 h1 {
     font-family: var(--font-heading);
-    font-size: 42px;
+    font-size: 36px;
     font-weight: 900;
     color: var(--primary-color);
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
+    text-transform: uppercase; /* Chữ in hoa uy tín */
+    margin-bottom: 10px;
 }
 
 header p {
     color: var(--accent-color);
     font-size: 16px;
     font-weight: 500;
-    margin-top: 10px;
 }
 
-/* --- 5. MENU (NAV) - PHIÊN BẢN HÀI HÒA --- */
+/* --- 5. MENU (NAV) - ĐÃ SỬA CHUẨN SGK --- */
 nav {
-    /* TRÀN VIỀN 100% */
-    width: 100%;
-    background-color: #ffffff; /* Nền trắng sạch sẽ */
+    /* Cấu trúc nền tảng */
+    background-color: var(--white);
+    width: 100%;                    /* Tràn viền 100% */
+    padding: 10px 0;
     
-    /* CĂN GIỮA & DÀN ĐỀU */
+    /* Căn giữa menu (Dùng Flexbox cơ bản) */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 
-    /* GIAO DIỆN UY TÍN NHƯNG KHÔNG GẮT */
-    /* Thay viền đỏ bằng viền Nâu Cafe sang trọng */
-    border-top: 4px solid var(--primary-color); 
+    /* Trang trí kiểu "Nhà nước" */
+    border-top: 5px solid var(--highlight);  /* Viền đỏ trên cùng */
+    border-bottom: 1px solid #ccc;           /* Viền xám mờ bên dưới */
     
-    /* Viền dưới mỏng màu nâu nhạt để tách biệt */
-    border-bottom: 1px solid #e6dedd; 
-    
-    /* Bóng đổ nâu cực nhẹ */
-    box-shadow: 0 4px 10px rgba(93, 64, 55, 0.05); 
-
-    /* DÍNH TRÊN ĐẦU (STICKY) */
-    position: sticky;
+    /* Hiệu ứng dính (Sticky) - Menu luôn hiện khi cuộn */
+    position: sticky; 
     top: 0;
-    z-index: 1000;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav a {
-    text-decoration: none;
-    /* Màu chữ là màu Nâu đậm, không dùng màu đen sì */
-    color: var(--primary-color); 
-    
-    /* PADDING CÁCH ĐỀU: Tạo khoảng thở rộng rãi */
-    padding: 16px 30px; 
-    
-    font-size: 13px; /* Chữ nhỏ gọn, tinh tế */
-    font-weight: 700; /* Đậm vừa phải */
-    text-transform: uppercase; /* IN HOA UY TÍN */
-    letter-spacing: 0.5px; /* Giãn chữ nhẹ cho thoáng */
+    text-decoration: none;          /* Bỏ gạch chân */
+    color: #333;
+    margin: 0 10px;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 14px;
     font-family: var(--font-body);
-    transition: all 0.3s ease;
-    
-    /* Đường ranh giới mờ giữa các mục (Tùy chọn, nhìn sẽ giống báo chí hơn) */
-    border-right: 1px solid #f0f0f0;
-}
-
-/* Bỏ đường kẻ bên phải của mục cuối cùng */
-nav a:last-child {
-    border-right: none;
+    text-transform: uppercase;      /* Viết hoa cho trang trọng */
+    transition: 0.3s;
 }
 
 nav a:hover {
-    /* Khi di chuột: Nền chuyển thành màu Nâu Cafe, Chữ trắng */
-    background-color: var(--primary-color);
-    color: #ffffff;
+    background-color: var(--highlight); /* Nền đỏ */
+    color: var(--white);                /* Chữ trắng */
+    border-radius: 4px;                 /* Bo góc nhẹ */
 }
 
-/* --- 6. BỐ CỤC (LAYOUT) --- */
 /* --- 6. BỐ CỤC (LAYOUT) --- */
 .container {
-    display: flex;
-    width: 90%;
-    max-width: 1100px;
-    
-    /* SỬA DÒNG NÀY: Tăng khoảng cách bên trên từ 40px lên 80px hoặc 100px */
-    margin: 80px auto 60px; 
-    
-    gap: 30px;
+    display: flex;          /* Chia cột */
+    width: 90%;             /* Chiều rộng web */
+    max-width: 1100px;      /* Giới hạn chiều rộng tối đa */
+    margin: 40px auto;      /* Căn giữa trang */
+    gap: 30px;              /* Khoảng cách giữa 2 cột */
     align-items: flex-start;
 }
-/* CỘT TRÁI */
+
+/* CỘT TRÁI (Nội dung chính) */
 .main-content {
-    flex: 2;
+    flex: 2; /* Chiếm 2 phần */
     background-color: var(--white);
-    padding: 40px;
-    border-radius: var(--radius-box);
-    /* Bóng đổ nâu ấm áp */
-    box-shadow: 0 15px 35px rgba(93, 64, 55, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* CỘT PHẢI */
+/* CỘT PHẢI (Thanh bên) */
 .sidebar {
-    flex: 1;
-    background: linear-gradient(180deg, #fff 0%, #fbf9f6 100%); /* Gradient kem nhẹ */
-    padding: 30px;
-    border-radius: var(--radius-box);
-    border: 1px solid #efebe9; /* Viền nâu rất nhạt */
-    text-align: center;
+    flex: 1; /* Chiếm 1 phần */
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
     position: sticky;
-    top: 80px;
+    top: 80px; /* Cách menu dính một đoạn */
 }
 
 /* --- 7. TRANG TRÍ NỘI DUNG --- */
 .main-content h2 {
     font-family: var(--font-heading);
     color: var(--primary-color);
-    /* Thay gạch đỏ bằng gạch nâu */
-    border-left: 5px solid var(--primary-color); 
+    border-left: 5px solid var(--highlight); /* Gạch đỏ đầu dòng */
     padding-left: 15px;
     margin-top: 0;
-    font-weight: 700;
-}
-
-.main-content h3 {
-    font-family: var(--font-heading);
-    color: var(--accent-color);
-    margin-top: 30px;
 }
 
 .main-content img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
-    transition: transform 0.3s;
+    border-radius: 10px;
     margin: 15px 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
-.main-content img:hover { transform: scale(1.02); }
 
-/* Nút bấm (Đã đổi sang màu Đỏ Trầm hoặc Nâu) */
+/* Nút bấm kiểu Công an */
 .btn-police {
     display: inline-block;
-    background-color: var(--primary-color); /* Nền nâu */
-    color: #fff; /* Chữ trắng */
+    background-color: var(--highlight);
+    color: #ffda00; /* Chữ vàng */
     text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
     margin-top: 10px;
     transition: 0.3s;
-    font-family: var(--font-body);
-    box-shadow: 0 5px 15px rgba(93, 64, 55, 0.2);
 }
-.btn-police:hover { 
-    transform: translateY(-2px);
-    background-color: var(--highlight); /* Hover chuyển sang đỏ trầm */
-    box-shadow: 0 8px 20px rgba(188, 71, 73, 0.3);
+.btn-police:hover {
+    background-color: #b71c1c; /* Đỏ đậm hơn khi di chuột */
 }
 
-/* --- 8. FOOTER --- */
+/* --- 8. FOOTER (CHÂN TRANG) --- */
 footer {
     text-align: center;
-    padding: 30px 0;
+    padding: 20px 0;
+    background-color: var(--primary-color);
     color: var(--white);
-    background-color: var(--primary-color); /* Footer màu nâu chủ đạo */
-    border-radius: 30px 30px 0 0;
+    font-size: 14px;
+    margin-top: 40px;
 }
 
-strong {
-    color: var(--highlight); /* Màu đỏ trầm cho từ khóa */
-    padding: 2px 5px;
-    border-radius: 4px;
-}
-
-/* --- 9. CÁC THÀNH PHẦN KHÁC --- */
-
-/* Preview Web */
-.bca-preview {
-    display: block;
-    width: 100%;
-    height: 180px;
-    background-color: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid #efebe9;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    position: relative;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-    text-decoration: none;
-}
-.bca-preview:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(93, 64, 55, 0.15); }
-.browser-bar { height: 25px; background: #f5f2eb; display: flex; align-items: center; padding-left: 10px; gap: 6px; border-bottom: 1px solid #e0e0e0; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: #ccc; }
-.bca-preview img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.hover-text { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(93, 64, 55, 0.9); color: white; text-align: center; padding: 8px; font-size: 12px; font-weight: bold; opacity: 0; transition: opacity 0.3s; font-family: var(--font-body); }
-.bca-preview:hover .hover-text { opacity: 1; }
-
-/* Khối Tôn Vinh */
-.quote-box-sidebar {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    color: white;
-    padding: 15px;
-    border-radius: 15px;
-    margin: 20px 0;
-    box-shadow: 0 5px 15px rgba(93, 64, 55, 0.2);
-    position: relative;
-    overflow: hidden;
-    text-align: left;
-}
-.quote-box-sidebar::before {
-    content: "★";
-    position: absolute;
-    top: -10px; right: -10px;
-    font-size: 80px;
-    color: rgba(255, 255, 255, 0.1);
-    transform: rotate(15deg);
-}
-
-/* Tin tức */
-.media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-.news-card { background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #efebe9; transition: 0.3s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-.news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-.news-thumb { width: 100%; height: 150px; object-fit: cover; }
-.news-info { padding: 15px; }
-.news-title { font-family: var(--font-heading); font-weight: 700; font-size: 15px; margin: 0 0 10px 0; color: var(--primary-color); }
-.news-desc { font-size: 13px; color: #666; margin: 0; }
-
-/* Widget Báo Nhân Dân */
-.nd-widget { border: 1px solid #e0e0e0; border-radius: 15px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 40px; }
-.nd-header { background: var(--primary-color); color: white; padding: 15px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--accent-color); }
-.nd-logo-text { font-family: "Times New Roman", serif; font-weight: bold; font-size: 20px; text-transform: uppercase; }
-.nd-content { height: 400px; overflow-y: auto; padding: 15px; }
-.nd-content::-webkit-scrollbar { width: 6px; }
-.nd-content::-webkit-scrollbar-thumb { background: #d7ccc8; border-radius: 4px; }
-.nd-item { display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #eee; padding-bottom: 15px; text-decoration: none; color: #333; }
-.nd-item:hover .nd-title { color: var(--highlight); }
-.nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
-.nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 14px; line-height: 1.4; font-family: var(--font-heading); }
-.nd-date { font-size: 12px; color: #999; display: block; margin-top: 5px; }
-
-/* --- RESPONSIVE MOBILE --- */
+/* --- 9. RESPONSIVE (Dành cho điện thoại) --- */
 @media (max-width: 768px) {
-    h1 { font-size: 26px; line-height: 1.3; }
-    header { padding-top: 40px; }
-    .container { flex-direction: column; width: 90%; }
-    .main-content, .sidebar { width: 100%; padding: 25px; box-sizing: border-box; }
-    .sidebar { position: static; order: -1; }
-    
-    nav { flex-direction: column; }
-    nav a { width: 100%; text-align: center; border-right: none; border-bottom: 1px solid #f0f0f0; padding: 15px 0; }
-    
-    .media-grid { grid-template-columns: 1fr; }
+    .container {
+        flex-direction: column; /* Chuyển thành 1 cột dọc */
+        width: 95%;
+    }
+    .sidebar {
+        position: static; /* Bỏ dính trên mobile */
+    }
+    nav {
+        flex-direction: column; /* Menu dọc cho dễ bấm */
+        align-items: center;
+    }
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
 }
-
-
