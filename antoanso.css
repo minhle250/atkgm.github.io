@@ -76,6 +76,19 @@ header p {
     margin-top: 10px;
 }
 
+.header-logo {
+    position: absolute; /* Tự do bay nhảy trong header */
+    top: 50%;           /* Canh giữa theo chiều dọc */
+    left: 40px;         /* Cách mép trái 40px */
+    transform: translateY(-60%); /* Căn chỉnh lại cho chính giữa tâm */
+    
+    width: 100px;       /* Độ to của logo (tùy chỉnh số này) */
+    height: auto;       /* Giữ tỉ lệ ảnh */
+    
+    /* Bóng đổ nhẹ cho logo nổi lên nền */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); 
+}
+
 /* --- 4. MENU (NAV) --- */
 nav {
     display: flex;              /* Dùng Flexbox để dàn trang menu */
@@ -472,5 +485,6 @@ strong {
     display: block;
     margin-top: 5px;
 }
+
 
 
