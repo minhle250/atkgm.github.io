@@ -63,7 +63,7 @@ header p {
     margin-top: 10px;
 }
 
-.header-logo {
+header-logo {
     position: absolute; /* Tự do bay nhảy trong header */
     top: 50%;           /* Canh giữa theo chiều dọc */
     left: 40px;         /* Cách mép trái 40px */
@@ -277,4 +277,5 @@ strong {
 .nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
 
