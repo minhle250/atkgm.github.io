@@ -119,25 +119,29 @@ nav a:hover {
 /* --- 5. BỐ CỤC CHIA CỘT (LAYOUT) --- */
 .container {
     display: flex;
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto 60px;
-    gap: 30px;
+    
+    /* CHỈNH SỬA QUAN TRỌNG Ở ĐÂY: */
+    width: 98%;            /* Mở rộng ra 98% màn hình (gần như tràn viền) */
+    max-width: 100%;       /* BỎ LUÔN giới hạn pixel cũ (1000px) */
+    
+    margin: 0 auto 80px;   /* Giữ nguyên căn giữa trên dưới */
+    
+    gap: 40px;             /* Tăng khoảng cách giữa 2 cột lên 40px cho thoáng */
     align-items: flex-start;
 }
 
-/* CỘT TRÁI */
+/* CỘT TRÁI (NỘI DUNG CHÍNH) */
 .main-content {
-    flex: 2;
+    flex: 75;              /* Chiếm 75% (3 phần 4) - Để nội dung chính rộng rãi */
     background-color: var(--white);
     padding: 40px;
     border-radius: var(--radius-box);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
-/* CỘT PHẢI */
+/* CỘT PHẢI (THANH BÊN) */
 .sidebar {
-    flex: 1;
+    flex: 25;              /* Chiếm 25% (1 phần 4) - Để sidebar gọn lại bên phải */
     background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
     padding: 30px;
     border-radius: var(--radius-box);
@@ -146,6 +150,7 @@ nav a:hover {
     position: sticky;
     top: 20px;
 }
+
 
 /* --- 6. TRANG TRÍ & TYPOGRAPHY MỚI --- */
 .main-content h2 {
@@ -472,6 +477,7 @@ strong {
     display: block;
     margin-top: 5px;
 }
+
 
 
 
