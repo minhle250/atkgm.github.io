@@ -87,7 +87,7 @@ nav {
     margin: 0;               /* Xóa lề auto để nó dính sát mép */
     border-radius: 0;        /* Xóa bo góc để nó vuông vức */
     
-    padding: 15px 0;         /* Tăng độ dày trên dưới cho sang */
+    padding: 80px 0;         /* Tăng độ dày trên dưới cho sang */
     
     /* CỐ ĐỊNH TRÊN ĐẦU */
     position: sticky;
@@ -284,6 +284,7 @@ strong {
 .nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
 
 
 
