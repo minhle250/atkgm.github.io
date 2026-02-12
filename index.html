@@ -1,118 +1,148 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
+<html>
+  <head>
     <meta charset="utf-8">
-    <title>🏠 Trang chủ | An Toàn Số</title>
+    <title> Trang chủ | An Toàn Số</title>
+    
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/553/553376.png" type="image/png">
     
     <link rel="stylesheet" href="antoanso.css">
 
     <style>
-        /* GIỮ NGUYÊN STYLE MODAL CREDITS CỦA MÀY */
+        /* MÀN HÌNH ĐEN MỜ */
         .modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0, 0, 0, 0.9); z-index: 10000;
-            align-items: center; justify-content: center; backdrop-filter: blur(5px);
+            align-items: center; justify-content: center;
+            backdrop-filter: blur(5px);
         }
+        /* KHUNG NỘI DUNG */
         .modal-content {
-            background: #0d1117; border: 2px solid #00ff41; padding: 30px; border-radius: 10px; 
-            width: 80%; max-width: 800px; box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
-            font-family: 'Courier New', monospace; color: #fff; position: relative; animation: zoomIn 0.3s ease;
+            background: #0d1117; border: 2px solid #00ff41;
+            padding: 30px; border-radius: 10px; width: 80%; max-width: 800px;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+            font-family: 'Courier New', monospace; color: #fff;
+            position: relative; animation: zoomIn 0.3s ease;
         }
+        /* GRID TEAM MEMBER */
         .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px;}
+        
         .member-card { background: #161b22; border: 1px solid #30363d; padding: 15px; border-radius: 5px; text-align: center; transition: 0.3s; }
         .member-card:hover { transform: translateY(-5px); border-color: #fff; }
+        
         .role { font-size: 0.8em; color: #8b949e; margin-bottom: 5px; font-style: italic; }
         .name { font-size: 1.1em; font-weight: bold; margin-bottom: 10px; color: #fff; }
+        
+        /* HIGHLIGHT LEADER */
         .member-card.leader { border: 1px solid #FFD700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); }
         .member-card.leader .name { color: #FFD700; }
+
         .close-btn { position: absolute; top: 10px; right: 20px; color: #ff5555; font-size: 30px; cursor: pointer; }
         @keyframes zoomIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
 
-    <header>
-      <div class="header-content">
-        <img src="453067359_959713312621364_576870545657984810_n-removebg-preview.png" alt="Logo Trường THPT Thanh Khê" class="header-logo">
-        <div class="header-text">
-          <h1>BÁO TƯỜNG AN TOÀN SỐ</h1>
-          <p>Cẩm nang "Sinh tồn số" dành cho học sinh THPT</p>
-        </div>
-      </div>
+    <header class="header-bg">
+      <h1> Báo tường An toàn số </h1>
+      <p> Cẩm nang "Sinh tồn số" dành cho học sinh THPT </p>
     </header>
 
     <nav>
-      <a href="index.html" class="active"> Trang chủ </a>
-      <a href="matkhau.html"> Mật khẩu </a>
-      <a href="mangxahoi.html"> Mạng xã hội </a>
-      <a href="publicwifi.html"> Wifi Free </a>
-      <a href="xacthuc.html"> Bảo mật 2 lớp </a>
-      <a href="tuyentruyen.html"> Luật ANM </a>
-      <a href="tintuc.html"> Tin tức </a>
-      <a href="#" onclick="openCreditModal(); return false;"> Credits Team </a>
+      <a href="index.html" class="active">  Trang chủ </a>
+      <a href="nhanbiet.html">  Nhận biết </a>
+      <a href="nguyco.html">  Nguy cơ </a>
+      <a href="giaiphap.html">  Giải pháp </a>
+      <a href="tuyentruyen.html">  Luật ANM </a>
+      <a href="tintuc.html">  Tin tức </a>
+      <a href="#" onclick="openCreditModal(); return false;">  Credits Team </a>
     </nav>
+
 
     <div class="container">
         
         <section class="main-content">
-            <h2>👋 Chào mừng đến <em>Trang chủ của dự án An Toàn Số!</em></h2>
             
-            <p>
-                Chúng ta đang sống trong thời đại mà <strong>"Dữ liệu là tài sản"</strong>. Việc mất tài khoản Facebook hay lộ tin nhắn riêng tư không chỉ là phiền toái, mà còn tiềm ẩn rủi ro lừa đảo và bắt nạt trực tuyến (Cyberbullying).
-            </p>
-            
-            <p>
-                Website này là dự án cá nhân của mình, nhằm tổng hợp lại những <strong>kỹ năng tự vệ cơ bản nhất</strong> mà một học sinh lớp 12 cần trang bị trước khi bước vào môi trường Đại học và đi làm.
-            </p>
+            <div class="intro-box">
+                <h2>🌐 An Toàn Số là gì?</h2>
+                <p>
+                    <strong>An toàn số (Digital Safety)</strong> không chỉ đơn giản là cài phần mềm diệt virus hay đặt một mật khẩu khó đoán. 
+                </p>
+                <p>
+                    Đó là khả năng <em>tự bảo vệ bản thân</em> trước các mối đe dọa trên không gian mạng, bao gồm việc bảo vệ <strong>dữ liệu cá nhân</strong>, <strong>tài sản tài chính</strong> và cả <strong>sức khỏe tinh thần</strong> (tránh xa các nội dung độc hại, bạo lực ngôn từ).
+                </p>
+            </div>
 
-            <h3>🎯 Nội dung trọng tâm của dự án:</h3>
-            <ul>
-                <li>
-                    <strong>Mật khẩu mạnh (Strong Password):</strong> 
-                    Thay đổi tư duy đặt mật khẩu. Tại sao <i>"123456"</i> là miếng mồi ngon cho Hacker?
-                </li>
-                <li>
-                    <strong>Vệ sinh Mạng xã hội (Social Hygiene):</strong> 
-                    Kiểm soát dấu chân số. Cách đăng story, check-in văn minh để tránh bị stalker theo dõi.
-                </li>
-                <li>
-                    <strong>Cảnh giác nơi công cộng:</strong> 
-                    Rủi ro tiềm ẩn đằng sau mạng Wifi miễn phí tại quán Cafe hay trà sữa.
-                </li>
-                <li>
-                    <strong>Bảo mật 2 lớp (2FA):</strong> 
-                    Chốt chặn cuối cùng. Kể cả khi bị lộ mật khẩu, hacker vẫn "bó tay" nếu không có mã xác thực từ điện thoại của bạn.
-                </li>
+            <hr style="border: 0; border-top: 1px solid #ddd; margin: 30px 0;">
+
+            <h3>📉 Thực trạng: "Sống ảo" nhưng "Rủi ro thật"</h3>
+            
+            <p>
+                Chúng ta - thế hệ <strong>Gen Z</strong> - là những "công dân số" (Digital Natives) chính hiệu. Cuộc sống của chúng ta gắn liền với chiếc Smartphone:
+            </p>
+            
+            <ul style="list-style-type: circle; margin-left: 20px;">
+                <li>Sáng thức dậy check <strong>Messenger/Zalo</strong>.</li>
+                <li>Học tập trên <strong>Zoom/Teams</strong> và tra cứu Google.</li>
+                <li>Giải trí trên <strong>TikTok/Instagram</strong>.</li>
+                <li>Thanh toán bằng <strong>QR Code/Banking</strong>.</li>
             </ul>
 
-            <p style="text-align: center; margin-top: 30px; font-style: italic; border-top: 1px solid #eee; padding-top: 20px;">
-                "An toàn thông tin không phải là đích đến, đó là một hành trình." <br>
-                <span style="font-size: 14px; color:#5d4037; font-weight: bold;">👉 Mời các bạn chọn các mục trên Menu để tham khảo chi tiết!</span>
+            <p class="highlight-text" style="background-color: #ffebee; padding: 15px; border-left: 5px solid #d32f2f; border-radius: 4px;">
+                🚨 <strong>Tuy nhiên:</strong> Khi mọi thứ đều được đưa lên mạng, rủi ro cũng tăng theo cấp số nhân. Tội phạm mạng ngày nay không cần cầm súng cướp ngân hàng, chúng chỉ cần một đường link độc hại hoặc một cuộc gọi Deepfake giả giọng người thân.
             </p>
+
+            <h3>🚀 Tại sao Website này ra đời?</h3>
+            <p>
+                Dự án này được xây dựng như một <strong>"Cẩm nang bỏ túi"</strong> dành riêng cho học sinh THPT. Mục tiêu không phải để biến bạn thành một Hacker, mà để trang bị cho bạn chiếc "khiên" vững chắc nhất: <strong>KIẾN THỨC</strong>.
+            </p>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <div style="flex: 1; background: #e3f2fd; padding: 15px; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 24px;">👁️</span>
+                    <h4>Biết địch</h4>
+                    <p style="font-size: 13px;">Nhận diện lừa đảo</p>
+                </div>
+                <div style="flex: 1; background: #fff3e0; padding: 15px; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 24px;">🛡️</span>
+                    <h4>Biết ta</h4>
+                    <p style="font-size: 13px;">Tự vệ đúng cách</p>
+                </div>
+                <div style="flex: 1; background: #e8f5e9; padding: 15px; border-radius: 8px; text-align: center;">
+                    <span style="font-size: 24px;">⚖️</span>
+                    <h4>Hiểu luật</h4>
+                    <p style="font-size: 13px;">Ứng xử văn minh</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; font-weight: bold; color: #5d4037;">
+                👇 Bắt đầu hành trình tìm hiểu bằng cách chọn các mục trên Menu nhé!
+            </p>
+
         </section>
 
+
         <aside class="sidebar">
-            <h3> - THANH THÔNG TIN - </h3>
+            <h3>  THANH THÔNG TIN  </h3>
             
             <a href="https://bocongan.gov.vn/" target="_blank" class="bca-preview">
                 <div class="browser-bar">
-                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
                     <span style="font-size: 10px; color: #666; margin-left: 5px;">bocongan.gov.vn</span>
                 </div>
-                <img src="vietnam.jpg" alt="Giao diện Web BCA" width="auto">
+                <img src="vietnam.jpg" alt="Cờ Việt Nam" width="auto">
                 <div class="hover-text">BẤM ĐỂ TRUY CẬP CỔNG TTĐT ↗</div>
             </a>
 
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Vietnam_People%27s_Insignia_emblem.svg/1280px-Vietnam_People%27s_Insignia_emblem.svg.png" alt="Công An Hiệu" class="police-badge">
             <h3>CỔNG THÔNG TIN ĐIỆN TỬ<br>BỘ CÔNG AN</h3>
-            <p style="font-size: 13px;">Kênh chính thống cập nhật tin tức an ninh trật tự và cảnh báo tội phạm công nghệ cao.</p>
-            
+            <p style="font-size: 13px;">Kênh chính thống cập nhật tin tức an ninh trật tự.</p>
             <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
-            
             <div class="quote-box-sidebar">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ho_Chi_Minh_1946.jpg/640px-Ho_Chi_Minh_1946.jpg" alt="Chân dung Bác Hồ" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ffda00; object-fit: cover;">
                     <div style="text-align: left;">
                         <h4 style="margin: 0; color: #ffda00; font-size: 13px; text-transform: uppercase; line-height: 1.3;">Học tập theo gương<br>Bác Hồ vĩ đại</h4>
@@ -120,51 +150,21 @@
                 </div>
                 <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.3); margin: 8px 0;">
                 <p style="font-style: italic; font-size: 14px; margin: 0; line-height: 1.4; color: white;">"Tuổi trẻ là mùa xuân của xã hội."</p>
-                <div style="margin-top: 10px; font-size: 12px; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 5px; color: #fff;">
-                    🇻🇳 <strong>Gen Z:</strong> Dùng mạng văn minh là yêu nước.
-                </div>
             </div>
         </aside>
 
-    </div> <footer>
+    </div> 
+    
+    <footer>
       <h3>&copy; 2026 - Tin học 12. Design by <strong><a href="https://www.instagram.com/starlinetouren/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">ohmymihhh</a></strong>.</h3>
       <div style="font-family: monospace; font-size: 15px; margin-top: 15px; display: inline-block; background: rgba(255,255,255,0.5); padding: 5px 15px; border-radius: 20px;">
         <span id="clock">Loading...</span>
         <span style="margin: 0 10px; color: #ccc;">|</span> 
         <span id="weather" style="font-weight: bold; color:#5d4037;">☁️ Đang tải...</span>
       </div>
-    </footer>
-
-    <div id="pingu-credit-modal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeCreditModal()">&times;</span>
-            <h2 style="text-align: center; color: #00ff41;">Mihh_DEVTEAM2026</h2>
-            <div class="team-grid">
-                <div class="member-card leader">
-                    <div class="role">★ PROJECT MANAGER</div>
-                    <div class="name">QUANG MINH (CEO)</div>
-                    <div class="task">Quản lý & Thiết kế hệ thống.</div>
-                </div>
-                <div class="member-card">
-                    <div class="role">CONTENT RESEARCHER</div>
-                    <div class="name">XUÂN NHÃ</div>
-                    <div class="task">Khai thác nội dung số.</div>
-                </div>
-                <div class="member-card">
-                    <div class="role">TECHNICAL SUPPORT</div>
-                    <div class="name">QUỐC BẢO & KIM KHOA</div>
-                    <div class="task">Tinh chỉnh giao diện.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // --- 1. ĐỒNG HỒ ---
+      <script>
         function updateTime() { document.getElementById("clock").innerText = new Date().toLocaleString('vi-VN'); }
         setInterval(updateTime, 1000); updateTime(); 
-
-        // --- 2. THỜI TIẾT ---
         async function updateWeather() {
             try {
                 const url = "https://api.open-meteo.com/v1/forecast?latitude=21.0285&longitude=105.8542&current_weather=true";
@@ -174,12 +174,44 @@
             } catch (e) { document.getElementById("weather").innerText = "🌡️ Thời tiết: N/A"; }
         }
         updateWeather(); setInterval(updateWeather, 600000); 
+      </script>
+    </footer>
 
-        // --- 3. MODAL CONTROL ---
+    <div id="pingu-credit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCreditModal()">&times;</span>
+            <h2 style="text-align: center; color: #00ff41;"> Mihh_DEVTEAM2026</h2>
+            <div class="team-grid">
+                <div class="member-card leader">
+                    <div class="role">★ PROJECT MANAGER & LEAD DEV</div>
+                    <div class="name">QUANG MINH (CEO)</div>
+                    <div class="task">Quản lý, điều hành & Thiết kế hệ thống Website.</div>
+                </div>
+                <div class="member-card">
+                    <div class="role">CONTENT RESEARCHER</div>
+                    <div class="name">XUÂN NHÃ</div>
+                    <div class="task">Tìm kiếm & Khai thác nội dung số.</div>
+                </div>
+                <div class="member-card">
+                    <div class="role">TECHNICAL SUPPORT</div>
+                    <div class="name">QUỐC BẢO & KIM KHOA</div>
+                    <div class="task">Hỗ trợ chỉnh sửa & Tinh chỉnh giao diện.</div>
+                </div>
+            </div>
+            <p style="text-align: center; color: #555; margin-top: 20px; font-size: 0.8em;">SYSTEM OPTIMIZED FOR 12TH GRADE OLYMPICS</p>
+        </div>
+    </div>
+
+    <script>
+        // JS ĐIỀU KHIỂN MODAL
         function openCreditModal() { document.getElementById('pingu-credit-modal').style.display = 'flex'; }
         function closeCreditModal() { document.getElementById('pingu-credit-modal').style.display = 'none'; }
-        window.onclick = function(e) { if (e.target.className === 'modal-overlay') closeCreditModal(); }
+        window.onclick = function(event) {
+            var modal = document.getElementById('pingu-credit-modal');
+            if (event.target == modal) { modal.style.display = "none"; }
+        }
     </script>
-
-</body>
+    
+    </div>
+  </body>
 </html>
