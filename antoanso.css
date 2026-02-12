@@ -35,14 +35,14 @@ body {
 
 /* --- 3. HEADER --- */
 header {
-    text-align: center;
-    padding: 60px 20px 80px;
-    background: url("beige.jpg") center/cover no-repeat, 
-                linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
+    text-align: left;
+    padding: 60px 20px 80px 180px;
+    background: linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     box-shadow: var(--shadow);
     margin-bottom: -50px; 
+   
 }
 
 h1 {
@@ -61,6 +61,19 @@ header p {
     font-size: 16px;
     font-weight: 500;
     margin-top: 10px;
+}
+
+.header-logo {
+    position: absolute; /* Tự do bay nhảy trong header */
+    top: 50%;           /* Canh giữa theo chiều dọc */
+    left: 40px;         /* Cách mép trái 40px */
+    transform: translateY(-60%); /* Căn chỉnh lại cho chính giữa tâm */
+    
+    width: 100px;       /* Độ to của logo (tùy chỉnh số này) */
+    height: auto;       /* Giữ tỉ lệ ảnh */
+    
+    /* Bóng đổ nhẹ cho logo nổi lên nền */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); 
 }
 
 /* --- 4. MENU (NAV) --- */
@@ -264,3 +277,4 @@ strong {
 .nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
