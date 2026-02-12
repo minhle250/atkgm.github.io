@@ -64,7 +64,7 @@ header p {
 /* --- 5. MENU (NAV) - ĐÃ SỬA CHUẨN SGK --- */
 nav {
     /* Cấu trúc nền tảng */
-    background-color: var(--white);
+    background-color: var(--primary-color);
     width: 100%;                    /* Tràn viền 100% */
     padding: 10px 0;
     
@@ -405,6 +405,7 @@ strong {
 .nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
 
 
 
