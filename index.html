@@ -1,37 +1,63 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="vi">
+<head>
     <meta charset="utf-8">
-    <title>🔦 Trang chủ | An Toàn Số</title>
+    <title>🏠 Trang chủ | An Toàn Số</title>
     
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/553/553376.png" type="image/png">
     
     <link rel="stylesheet" href="antoanso.css">
-  </head>
 
-  <body>
+    <style>
+        /* GIỮ NGUYÊN STYLE MODAL CREDITS */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); z-index: 10000;
+            align-items: center; justify-content: center; backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: #0d1117; border: 2px solid #00ff41; padding: 30px; border-radius: 10px; 
+            width: 80%; max-width: 800px; box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+            font-family: 'Courier New', monospace; color: #fff; position: relative; animation: zoomIn 0.3s ease;
+        }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px;}
+        .member-card { background: #161b22; border: 1px solid #30363d; padding: 15px; border-radius: 5px; text-align: center; transition: 0.3s; }
+        .member-card:hover { transform: translateY(-5px); border-color: #fff; }
+        .role { font-size: 0.8em; color: #8b949e; margin-bottom: 5px; font-style: italic; }
+        .name { font-size: 1.1em; font-weight: bold; margin-bottom: 10px; color: #fff; }
+        .member-card.leader { border: 1px solid #FFD700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.2); }
+        .member-card.leader .name { color: #FFD700; }
+        .close-btn { position: absolute; top: 10px; right: 20px; color: #ff5555; font-size: 30px; cursor: pointer; }
+        @keyframes zoomIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+    </style>
+</head>
 
-    <header class="header-bg">
-      <h1> Báo tường An toàn số </h1>
-      <p> Cẩm nang "Sinh tồn số" dành cho học sinh THPT </p>
+<body>
+
+    <header>
+      <div class="header-content">
+        <img src="453067359_959713312621364_576870545657984810_n-removebg-preview.png" alt="Logo Trường THPT Thanh Khê" class="header-logo">
+        <div class="header-text">
+          <h1>BÁO TƯỜNG AN TOÀN SỐ</h1>
+          <p>Cẩm nang "Sinh tồn số" dành cho học sinh THPT</p>
+        </div>
+      </div>
     </header>
 
-    
     <nav>
-      <a href="index.html"> Trang chủ </a>
+      <a href="index.html" class="active"> Trang chủ </a>
       <a href="matkhau.html"> Mật khẩu </a>
-      <a href="mangxahoi.html">  Mạng xã hội </a>
-      <a href="publicwifi.html">  Wifi Free </a>
-      <a href="xacthuc.html">  Bảo mật 2 lớp </a>
-      <a href="tuyentruyen.html">  Luật ANM </a>
-      <a href="tintuc.html">  Tin tức </a>
+      <a href="mangxahoi.html"> Mạng xã hội </a>
+      <a href="publicwifi.html"> Wifi Free </a>
+      <a href="xacthuc.html"> Bảo mật 2 lớp </a>
+      <a href="tuyentruyen.html"> Luật ANM </a>
+      <a href="tintuc.html"> Tin tức </a>
+      <a href="#" onclick="openCreditModal(); return false;"> Credits Team </a>
     </nav>
-
 
     <div class="container">
         
         <section class="main-content">
-            
             <h2>👋 Chào mừng đến <em>Trang chủ của dự án An Toàn Số!</em></h2>
             
             <p>
@@ -66,29 +92,21 @@
                 "An toàn thông tin không phải là đích đến, đó là một hành trình." <br>
                 <span style="font-size: 14px; color:#5d4037; font-weight: bold;">👉 Mời các bạn chọn các mục trên Menu để tham khảo chi tiết!</span>
             </p>
-
         </section>
 
-
         <aside class="sidebar">
-            
             <h3> - THANH THÔNG TIN - </h3>
             
             <a href="https://bocongan.gov.vn/" target="_blank" class="bca-preview">
                 <div class="browser-bar">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
                     <span style="font-size: 10px; color: #666; margin-left: 5px;">bocongan.gov.vn</span>
                 </div>
-                
                 <img src="vietnam.jpg" alt="Giao diện Web BCA" width="auto">
-                
                 <div class="hover-text">BẤM ĐỂ TRUY CẬP CỔNG TTĐT ↗</div>
             </a>
 
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Vietnam_People%27s_Insignia_emblem.svg/1280px-Vietnam_People%27s_Insignia_emblem.svg.png" alt="Công An Hiệu" class="police-badge">
-            
             <h3>CỔNG THÔNG TIN ĐIỆN TỬ<br>BỘ CÔNG AN</h3>
             <p style="font-size: 13px;">Kênh chính thống cập nhật tin tức an ninh trật tự và cảnh báo tội phạm công nghệ cao.</p>
             
@@ -97,74 +115,72 @@
             <div class="quote-box-sidebar">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ho_Chi_Minh_1946.jpg/640px-Ho_Chi_Minh_1946.jpg" alt="Chân dung Bác Hồ" style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ffda00; object-fit: cover;">
-                    
                     <div style="text-align: left;">
                         <h4 style="margin: 0; color: #ffda00; font-size: 13px; text-transform: uppercase; line-height: 1.3;">Học tập theo gương<br>Bác Hồ vĩ đại</h4>
                     </div>
                 </div>
-                
                 <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.3); margin: 8px 0;">
-
-                <p style="font-style: italic; font-size: 14px; margin: 0; line-height: 1.4; color: white;">
-                    "Tuổi trẻ là mùa xuân của xã hội."
-                </p>
-                
+                <p style="font-style: italic; font-size: 14px; margin: 0; line-height: 1.4; color: white;">"Tuổi trẻ là mùa xuân của xã hội."</p>
                 <div style="margin-top: 10px; font-size: 12px; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 5px; color: #fff;">
                     🇻🇳 <strong>Gen Z:</strong> Dùng mạng văn minh là yêu nước.
                 </div>
             </div>
-
         </aside>
 
     </div> <footer>
       <h3>&copy; 2026 - Tin học 12. Design by <strong><a href="https://www.instagram.com/starlinetouren/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">ohmymihhh</a></strong>.</h3>
-      
       <div style="font-family: monospace; font-size: 15px; margin-top: 15px; display: inline-block; background: rgba(255,255,255,0.5); padding: 5px 15px; border-radius: 20px;">
-        
         <span id="clock">Loading...</span>
-        
         <span style="margin: 0 10px; color: #ccc;">|</span> 
-        
         <span id="weather" style="font-weight: bold; color:#5d4037;">☁️ Đang tải...</span>
-      
       </div>
-
-      <script>
-        // --- 1. HÀM ĐỒNG HỒ ---
-        function updateTime() {
-          const now = new Date();
-          // Cập nhật giờ Việt Nam đầy đủ
-          document.getElementById("clock").innerText = now.toLocaleString('vi-VN'); 
-        }
-        setInterval(updateTime, 1000);
-        updateTime(); 
-
-        // --- 2. HÀM THỜI TIẾT (Dùng API Open-Meteo) ---
-        async function updateWeather() {
-            try {
-                // --- CẬP NHẬT TỌA ĐỘ HÀ NỘI ---
-                // Latitude: 21.0285, Longitude: 105.8542
-                const url = "https://api.open-meteo.com/v1/forecast?latitude=21.0285&longitude=105.8542&current_weather=true";
-                
-                const response = await fetch(url);      // Gọi điện lên server hỏi thời tiết
-                const data = await response.json();     // Nhận dữ liệu trả về
-                
-                const temp = data.current_weather.temperature; // Lấy nhiệt độ
-                
-                // Hiển thị ra màn hình (Sửa chữ thành Hà Nội)
-                document.getElementById("weather").innerHTML = `<a href="secret.html" target="_blank" style="color: #5d4037; text-decoration: none;"><button style="cursor:text; background: none; border: none; padding: 0; font-family: inherit; font-size: inherit; color: inherit;">🌡️ Hà Nội: ${temp}°C </button></a>`;
-            } catch (error) {
-                console.log("Lỗi lấy thời tiết:", error);
-                document.getElementById("weather").innerText = "🌡️ Thời tiết: N/A";
-            }
-        }
-        
-        updateWeather(); // Chạy ngay khi mở web
-        setInterval(updateWeather, 600000); // Cứ 10 phút cập nhật lại 1 lần cho đỡ lag máy
-      </script>
     </footer>
 
-  </body>
+    <div id="pingu-credit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCreditModal()">&times;</span>
+            <h2 style="text-align: center; color: #00ff41;">Mihh_DEVTEAM2026</h2>
+            <div class="team-grid">
+                <div class="member-card leader">
+                    <div class="role">★ PROJECT MANAGER</div>
+                    <div class="name">QUANG MINH (CEO)</div>
+                    <div class="task">Quản lý & Thiết kế hệ thống.</div>
+                </div>
+                <div class="member-card">
+                    <div class="role">CONTENT RESEARCHER</div>
+                    <div class="name">XUÂN NHÃ</div>
+                    <div class="task">Khai thác nội dung số.</div>
+                </div>
+                <div class="member-card">
+                    <div class="role">TECHNICAL SUPPORT</div>
+                    <div class="name">QUỐC BẢO & KIM KHOA</div>
+                    <div class="task">Tinh chỉnh giao diện.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. ĐỒNG HỒ ---
+        function updateTime() { document.getElementById("clock").innerText = new Date().toLocaleString('vi-VN'); }
+        setInterval(updateTime, 1000); updateTime(); 
+
+        // --- 2. THỜI TIẾT ---
+        async function updateWeather() {
+            try {
+                const url = "https://api.open-meteo.com/v1/forecast?latitude=21.0285&longitude=105.8542&current_weather=true";
+                const response = await fetch(url);
+                const data = await response.json();
+                document.getElementById("weather").innerHTML = `<a href="secret.html" target="_blank" style="color: #5d4037; text-decoration: none;"><button style="cursor:text; background: none; border: none; padding: 0; font-family: inherit; font-size: inherit; color: inherit;">🌡️ Hà Nội: ${data.current_weather.temperature}°C </button></a>`;
+            } catch (e) { document.getElementById("weather").innerText = "🌡️ Thời tiết: N/A"; }
+        }
+        updateWeather(); setInterval(updateWeather, 600000); 
+
+        // --- 3. MODAL CONTROL ---
+        function openCreditModal() { document.getElementById('pingu-credit-modal').style.display = 'flex'; }
+        function closeCreditModal() { document.getElementById('pingu-credit-modal').style.display = 'none'; }
+        window.onclick = function(e) { if (e.target.className === 'modal-overlay') closeCreditModal(); }
+    </script>
+
+</body>
 </html>
-
-
