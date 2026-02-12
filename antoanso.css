@@ -65,19 +65,31 @@ header p {
 
 /* --- 4. MENU (NAV) --- */
 nav {
+    /* CẤU TRÚC: Phải tràn viền mới ra dáng nhà nước */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Hoặc space-between nếu có logo trái, menu phải */
+    align-items: center;
     flex-wrap: wrap;
-    background-color: var(--white);
-    width: 100%;
-    max-width: 90%;
-    margin: 0 auto 50px;
-    padding: 0px;
-    border-radius: 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 10;
+    
+    /* MÀU SẮC & GIAO DIỆN */
+    background-color: var(--white); /* Nền trắng sạch */
+    width: 100%; /* Tràn viền 100% */
+    max-width: 100%; /* Bỏ cái 90% đi */
+    margin: 0; /* Sát lề trên cùng */
+    padding: 15px 30px; /* Dày dặn hơn */
+    
+    /* GÓC CẠNH: Vuông vức hoặc bo cực nhẹ */
+    border-radius: 0; 
+    
+    /* HIỆU ỨNG: Bóng đổ nhẹ và Line màu chủ đạo (Ví dụ: Xanh dương hoặc Đỏ) */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #d71920; /* Line đỏ trên cùng tạo điểm nhấn quyền lực */
+    border-bottom: 1px solid #e5e7eb; /* Line mờ dưới phân cách nội dung */
+    
+    position: relative; /* Hoặc sticky top: 0 nếu muốn dính trên đầu */
+    z-index: 1000;
 }
+
 
 nav a {
     text-decoration: none;
@@ -264,5 +276,6 @@ strong {
 .nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
 
 
