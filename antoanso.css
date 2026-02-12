@@ -109,20 +109,21 @@ nav a:hover {
 
 /* --- 5. BỐ CỤC CHIA CỘT (LAYOUT) --- */
 .container {
-    display: flex;              /* Chia cột bằng Flexbox */
-    width: 90%;                 /* Chiều rộng nội dung là 90% */
-    max-width: 1000px;          /* Nhưng không quá 1000px */
+    display: flex;
     
-    /* [KHOẢNG CÁCH] */
-    margin: 0 auto 80px;        /* Trên 0 (vì nav đẩy rồi), Dưới 80px */
+    /* CHỈNH SỬA Ở ĐÂY: Trải rộng ra hai bên */
+    width: 96%;            /* Chiếm 96% màn hình (chừa lề 2% mỗi bên cho cân đối) */
+    max-width: 1280px;     /* Giới hạn tối đa rộng hơn (trước là 1000px) */
     
-    gap: 30px;                  /* Khoảng cách giữa 2 cột */
-    align-items: flex-start;    /* Căn hàng từ trên xuống */
+    margin: 0 auto 80px;   /* Giữ nguyên căn giữa trên dưới */
+    
+    gap: 40px;             /* Tăng khoảng cách giữa 2 cột lên cho thoáng */
+    align-items: flex-start;
 }
 
 /* CỘT TRÁI (NỘI DUNG CHÍNH) */
 .main-content {
-    flex: 2;                    /* Chiếm 2 phần diện tích (khoảng 66%) */
+    flex: 7;               /* Đổi thành tỉ lệ 7 phần (70%) cho rộng rãi */
     background-color: var(--white);
     padding: 40px;
     border-radius: var(--radius-box);
@@ -131,14 +132,14 @@ nav a:hover {
 
 /* CỘT PHẢI (THANH BÊN) */
 .sidebar {
-    flex: 1;                    /* Chiếm 1 phần diện tích (khoảng 33%) */
+    flex: 3;               /* Đổi thành tỉ lệ 3 phần (30%) */
     background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
     padding: 30px;
     border-radius: var(--radius-box);
     border: 1px solid #e0e0e0;
     text-align: center;
-    position: sticky;           /* Dính sidebar khi cuộn */
-    top: 20px;                  /* Cách mép trên 20px */
+    position: sticky;
+    top: 90px;             /* Chỉnh lại chút cho khớp với menu mới */
 }
 
 /* --- 6. TRANG TRÍ & TYPOGRAPHY MỚI --- */
@@ -463,3 +464,4 @@ strong {
     display: block;
     margin-top: 5px;
 }
+
