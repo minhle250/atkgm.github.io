@@ -76,20 +76,27 @@ header-logo {
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); 
 }
 
-/* --- 4. MENU (NAV) --- */
+/* --- 4. MENU (NAV) - BẢN TRÀN VIỀN --- */
 nav {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     background-color: var(--white);
-    width: fit-content;
-    max-width: 90%;
-    margin: 0 auto 50px;
-    padding: 10px 15px;
-    border-radius: 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 10;
+
+    /* MỞ RỘNG RA 2 BÊN */
+    width: 100%;             /* Trải hết 100% màn hình */
+    margin: 0;               /* Xóa lề auto để nó dính sát mép */
+    border-radius: 0;        /* Xóa bo góc để nó vuông vức */
+    
+    padding: 15px 0;         /* Tăng độ dày trên dưới cho sang */
+    
+    /* CỐ ĐỊNH TRÊN ĐẦU */
+    position: sticky;
+    top: 0;                  /* Dính sát mép trên luôn */
+    z-index: 1000;
+    
+    /* TRANG TRÍ */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Đổ bóng nhẹ phía dưới */
+    border-bottom: 1px solid #eee;           /* Kẻ 1 đường mờ ngăn cách */
 }
 
 nav a {
@@ -277,5 +284,6 @@ strong {
 .nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
 
 
