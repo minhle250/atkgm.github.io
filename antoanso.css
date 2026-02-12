@@ -64,49 +64,50 @@ header p {
     margin-top: 10px;
 }
 
-/* --- 4. MENU (NAV) --- */
+/* --- 4. MENU (NAV) - ĐÃ SỬA TRÀN VIỀN --- */
 nav {
     /* KÍCH THƯỚC: Trải hết màn hình */
-    width: 100%;
+    width: 100%;  
     height: auto;
-
+    
     /* BỐ CỤC: Dàn quân */
     display: flex;
-    justify-content: center; /* Các mục nằm giữa (Muốn dạt sang 2 bên thì sửa thành space-between) */
+    justify-content: center; /* Items nằm giữa màn hình */
     align-items: center;
     flex-wrap: wrap;
 
-    /* GIAO DIỆN: Vuông vức để trải tràn viền */
-    background-color: var(--white);
+    /* GIAO DIỆN: Vuông vức mới trải được */
+    background-color: var(--white); 
     border-radius: 0;       /* QUAN TRỌNG: Vuông góc, không bo tròn */
-    margin: 0;              /* QUAN TRỌNG: Xóa lề để chạm mép */
-    padding: 10px 0;        /* Khoảng cách trên dưới */
-
+    margin: 0;              /* QUAN TRỌNG: Sát lề */
+    padding: 15px 0;        /* Khoảng cách trên dưới */
+    
     /* HIỆU ỨNG: Dính chặt lên đầu */
     position: sticky;
     top: 0;
     z-index: 1000;
-
-    /* TRANG TRÍ */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Trang trí thêm */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--primary-color); /* Viền màu chủ đạo trên cùng */
     border-bottom: 1px solid #ddd;
 }
 
 nav a {
     text-decoration: none;
-    color: #000;
-    margin: 5px 10px;       /* Cách nhau ra một chút cho thoáng */
-    padding: 8px 20px;
-    font-weight: 600;
+    color: #333;
+    margin: 0 10px;         /* Khoảng cách giữa các nút */
+    padding: 10px 20px;
+    font-weight: 700;
     
-    /* Nút bấm vẫn giữ bo tròn cho mềm mại */
+    /* Nút bấm con bên trong vẫn bo tròn cho đẹp */
     border-radius: 50px;    
     
     transition: all 0.3s ease;
     white-space: nowrap;
-    
-    /* Font chữ */
+    text-transform: uppercase;
     font-family: var(--font-body);
+    font-size: 14px;
 }
 
 nav a:hover {
@@ -114,6 +115,7 @@ nav a:hover {
     color: var(--white);
     transform: translateY(-2px);
 }
+
 /* --- 5. BỐ CỤC CHIA CỘT (LAYOUT) --- */
 .container {
     display: flex;
@@ -470,4 +472,5 @@ strong {
     display: block;
     margin-top: 5px;
 }
+
 
