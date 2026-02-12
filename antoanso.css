@@ -1,499 +1,465 @@
 /* =========================================
-
    STYLE.CSS - GIAO DIỆN WEBSITE AN TOÀN SỐ
-
    Updated: Font chữ sạch & lịch sự
-
    ========================================= */
 
-
-
 /* --- 0. IMPORT FONTS (Google Fonts) --- */
-
+/* Nhúng font Merriweather (cho tiêu đề) và Inter (cho nội dung) từ Google */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600&display=swap');
 
-
-
 /* --- 1. KHAI BÁO BIẾN (DESIGN SYSTEM) --- */
-
+/* Nơi quy định màu sắc và thông số chung cho toàn web, sửa ở đây là đổi cả web */
 :root {
+    --primary-color: #5d4037;   /* Nâu Cafe - Màu chủ đạo */
+    --accent-color: #8d6e63;    /* Nâu Hồng - Màu phụ trợ */
+    --highlight: #d90429;       /* Đỏ cờ - Dùng cho điểm nhấn quan trọng */
+    --text-color: #4a4a4a;      /* Xám đậm - Màu chữ dễ đọc */
+    --bg-color: #f5f2eb;        /* Kem ấm - Màu nền website */
+    --white: #ffffff;           /* Màu trắng chuẩn */
+    --radius-box: 30px;         /* Độ bo tròn góc cho các khối nội dung */
+    --shadow: 0 10px 30px rgba(93, 64, 55, 0.1); /* Hiệu ứng bóng đổ */
 
-    --primary-color: #5d4037;   /* Nâu Cafe */
-
-    --accent-color: #8d6e63;    /* Nâu Hồng */
-
-    --highlight: #d90429;       /* Đỏ cờ */
-
-    --text-color: #4a4a4a;      /* Xám đậm */
-
-    --bg-color: #f5f2eb;        /* Kem ấm */
-
-    --white: #ffffff;
-
-    --radius-box: 30px;         /* Bo góc */
-
-    --shadow: 0 10px 30px rgba(93, 64, 55, 0.1);
-
-   
-
-    /* Font Variables */
-
+    /* Biến Font chữ */
     --font-heading: 'Merriweather', serif;  /* Font Tiêu đề (Có chân - Sang trọng) */
-
     --font-body: 'Inter', sans-serif;       /* Font Nội dung (Không chân - Sạch sẽ) */
-
 }
-
-
 
 /* --- 2. CẤU TRÚC CHUNG --- */
-
 body {
-
-    margin: 0;
-
-    background-color: var(--bg-color);
-
-    /* Thay đổi font mặc định sang Inter */
-
-    font-family: var(--font-body);
-
-    color: var(--text-color);
-
-    line-height: 1.6;
-
-    overflow-x: hidden;
-
+    margin: 0;                  /* Xóa lề mặc định của trình duyệt */
+    background-color: var(--bg-color); /* Đặt màu nền kem */
+    font-family: var(--font-body);     /* Set font mặc định là Inter */
+    color: var(--text-color);   /* Màu chữ chung */
+    line-height: 1.6;           /* Khoảng cách dòng cho dễ đọc */
+    overflow-x: hidden;         /* Chặn thanh cuộn ngang nếu nội dung bị tràn */
 }
 
-
-
-/* --- 3. HEADER --- */
-
+/* --- 3. HEADER (PHẦN ĐẦU TRANG) --- */
 header {
-
-    text-align: left;
-
-    padding: 60px 20px 80px;
-
+    text-align: left;           /* Căn lề trái cho nội dung header */
+    padding: 60px 20px 80px;    /* Khoảng cách đệm bên trong */
+    
+    /* Ảnh nền kết hợp Gradient màu loang */
     background: url("beige.jpg") center/cover no-repeat,
-
                 linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
-
+    
+    /* Bo tròn 2 góc dưới của header */
     border-bottom-left-radius: 50px;
-
     border-bottom-right-radius: 50px;
-
-    box-shadow: var(--shadow);
-
-    margin-bottom: -50px;
-
+    
+    box-shadow: var(--shadow);  /* Đổ bóng cho header nổi lên */
+    margin-bottom: -50px;       /* Đẩy header lấn xuống dưới một chút */
 }
-
-
 
 h1 {
-
-    /* Áp dụng font Tiêu đề */
-
-    font-family: var(--font-heading);
-
-    font-size: 42px;
-
-    font-weight: 900; /* Đậm hơn chút cho uy lực */
-
+    font-family: var(--font-heading); /* Dùng font Merriweather */
+    font-size: 42px;            /* Kích thước chữ lớn */
+    font-weight: 900;           /* Độ đậm cao nhất */
     color: var(--primary-color);
-
     margin: 0;
-
-    text-transform: uppercase;
-
-    letter-spacing: -0.5px;
-
+    text-transform: uppercase;  /* Viết hoa toàn bộ */
+    letter-spacing: -0.5px;     /* Thu hẹp khoảng cách chữ xíu cho chặt chẽ */
 }
-
-
 
 header p {
-
     color: var(--accent-color);
-
     font-size: 16px;
-
     font-weight: 500;
-
     margin-top: 10px;
-
 }
-
-
-
-/* --- 4. MENU (NAV) --- */
 
 /* --- 4. MENU (NAV) --- */
 nav {
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
+    display: flex;              /* Dùng Flexbox để dàn trang menu */
+    justify-content: center;    /* Căn giữa các nút menu */
+    flex-wrap: wrap;            /* Tự xuống dòng nếu màn hình bé */
     background-color: var(--white);
     
-    /* CHỈNH SỬA Ở ĐÂY: Trải full màn hình */
-    width: 100%;       /* Tràn viền */
-    max-width: 100%;   /* Bỏ giới hạn cũ */
-    margin: 0 auto 60px; /* Cách nội dung dưới 60px */
+    /* [CẤU HÌNH TRÀN VIỀN] */
+    width: 100%;                /* Chiều rộng 100% màn hình */
+    max-width: 100%;            /* Bỏ giới hạn chiều rộng cũ */
+    margin: 0 auto 60px;        /* Cách nội dung bên dưới 60px */
     
-    padding: 15px 0;   /* Tăng padding tí cho thoáng */
-    border-radius: 0;  /* Vuông vức để dính lề */
+    padding: 15px 0;            /* Đệm trên dưới 15px */
+    border-radius: 0;           /* Vuông góc (không bo tròn) để dính lề */
     
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Chỉnh bóng đổ nhẹ lại xíu */
-    position: sticky;  /* Dính trên đầu */
-    top: 0;
-    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Bóng đổ nhẹ */
+    position: sticky;           /* Hiệu ứng dính menu khi cuộn chuột */
+    top: 0;                     /* Dính sát mép trên cùng */
+    z-index: 1000;              /* Lớp ưu tiên cao nhất (nổi lên trên tất cả) */
 }
 
 nav a {
-    text-decoration: none;
-    color: #000;
-    margin: 0 10px;    /* Cách đều các nút ra */
-    padding: 10px 20px;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    text-decoration: none;      /* Bỏ gạch chân link */
+    color: #000;                /* Màu chữ đen */
+    margin: 0 10px;             /* Khoảng cách giữa các nút */
+    padding: 10px 20px;         /* Độ phồng của nút */
+    font-weight: 600;           /* Chữ đậm */
+    border-radius: 50px;        /* Bo tròn nút menu hình viên thuốc */
+    transition: all 0.3s ease;  /* Hiệu ứng chuyển động mượt */
+    white-space: nowrap;        /* Không cho chữ xuống dòng */
     font-family: var(--font-body);
 }
 
 nav a:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-    transform: translateY(-2px);
+    background-color: var(--primary-color); /* Nền nâu khi di chuột */
+    color: var(--white);        /* Chữ trắng khi di chuột */
+    transform: translateY(-2px);/* Nút nảy lên nhẹ */
 }
 
 /* --- 5. BỐ CỤC CHIA CỘT (LAYOUT) --- */
 .container {
-    display: flex;
-    width: 90%;
-    max-width: 1000px;
+    display: flex;              /* Chia cột bằng Flexbox */
+    width: 90%;                 /* Chiều rộng nội dung là 90% */
+    max-width: 1000px;          /* Nhưng không quá 1000px */
     
-    /* CHỈNH SỬA Ở ĐÂY: Bỏ margin-top vì nav đã đẩy rồi */
-    margin: 0 auto 80px; 
+    /* [KHOẢNG CÁCH] */
+    margin: 0 auto 80px;        /* Trên 0 (vì nav đẩy rồi), Dưới 80px */
     
-    gap: 30px;
-    align-items: flex-start;
+    gap: 30px;                  /* Khoảng cách giữa 2 cột */
+    align-items: flex-start;    /* Căn hàng từ trên xuống */
 }
 
-
-/* CỘT TRÁI */
-
+/* CỘT TRÁI (NỘI DUNG CHÍNH) */
 .main-content {
-
-    flex: 2;
-
+    flex: 2;                    /* Chiếm 2 phần diện tích (khoảng 66%) */
     background-color: var(--white);
-
     padding: 40px;
-
     border-radius: var(--radius-box);
-
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
-
-
-/* CỘT PHẢI */
-
+/* CỘT PHẢI (THANH BÊN) */
 .sidebar {
-
-    flex: 1;
-
+    flex: 1;                    /* Chiếm 1 phần diện tích (khoảng 33%) */
     background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
-
     padding: 30px;
-
     border-radius: var(--radius-box);
-
     border: 1px solid #e0e0e0;
-
     text-align: center;
-
-    position: sticky;
-
-    top: 20px;
-
+    position: sticky;           /* Dính sidebar khi cuộn */
+    top: 20px;                  /* Cách mép trên 20px */
 }
-
-
 
 /* --- 6. TRANG TRÍ & TYPOGRAPHY MỚI --- */
-
 .main-content h2 {
-
-    font-family: var(--font-heading); /* Font tiêu đề */
-
+    font-family: var(--font-heading);
     color: var(--accent-color);
-
-    border-left: 5px solid var(--primary-color);
-
+    border-left: 5px solid var(--primary-color); /* Gạch dọc bên trái tiêu đề */
     padding-left: 15px;
-
     margin-top: 0;
-
     font-weight: 700;
-
 }
-
-
 
 .main-content h3 {
-
     font-family: var(--font-heading);
-
     color: var(--primary-color);
-
     margin-top: 30px;
-
 }
-
-
 
 .main-content img {
-
-    width: 100%;
-
-    height: auto;
-
-    border-radius: 20px;
-
+    width: 100%;                /* Ảnh co giãn theo khung */
+    height: auto;               /* Chiều cao tự động */
+    border-radius: 20px;        /* Bo góc ảnh */
     transition: transform 0.3s;
-
 }
 
-.main-content img:hover { transform: scale(1.02); }
-
-
+.main-content img:hover {
+    transform: scale(1.02);     /* Phóng to ảnh nhẹ khi di chuột */
+}
 
 .btn-police {
-
     display: inline-block;
-
     background-color: var(--highlight);
-
     color: #ffda00;
-
     text-decoration: none;
-
-    padding: 12px 24px; /* To hơn chút cho dễ bấm */
-
+    padding: 12px 24px;
     border-radius: 50px;
-
     font-weight: 600;
-
     margin-top: 10px;
-
     transition: 0.3s;
-
     font-family: var(--font-body);
-
 }
 
-.btn-police:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(217, 4, 41, 0.3); }
+.btn-police:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(217, 4, 41, 0.3);
+}
 
-.police-badge { width: 70px; margin-bottom: 10px; }
+.police-badge {
+    width: 70px;
+    margin-bottom: 10px;
+}
 
-
-
-/* --- 7. FOOTER --- */
-
+/* --- 7. FOOTER (CHÂN TRANG) --- */
 footer {
-
     text-align: center;
-
     padding: 30px 0;
-
     color: var(--accent-color);
-
     background: url("60+ Marble Texture Aesthetic Backgrounds (Free Download, High-Res).jpg") center/cover;
-
-    border-radius: 30px 30px 0 0;
-
+    border-radius: 30px 30px 0 0; /* Chỉ bo tròn 2 góc trên */
 }
-
-
 
 strong {
-
     color: var(--primary-color);
-
     padding: 2px 5px;
-
     border-radius: 4px;
-
 }
 
-
-
-/* --- KHUNG PREVIEW WEB --- */
-
+/* --- KHUNG PREVIEW WEB (MÔ PHỎNG TRÌNH DUYỆT) --- */
 .bca-preview {
-
     display: block;
-
     width: 100%;
-
     height: 180px;
-
     background-color: #fff;
-
     border-radius: 15px;
-
     overflow: hidden;
-
     border: 1px solid #ddd;
-
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-
     margin-bottom: 20px;
-
     transition: transform 0.3s ease;
-
     text-decoration: none;
-
 }
 
-.bca-preview:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(217, 4, 41, 0.2); }
+.bca-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(217, 4, 41, 0.2);
+}
 
-.browser-bar { height: 25px; background: #f0f0f0; display: flex; align-items: center; padding-left: 10px; gap: 6px; border-bottom: 1px solid #ccc; }
+.browser-bar {
+    height: 25px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    gap: 6px;
+    border-bottom: 1px solid #ccc;
+}
 
+/* 3 chấm giả lập nút đóng/mở cửa sổ */
 .dot { width: 8px; height: 8px; border-radius: 50%; }
-
 .dot.red { background: #ff5f57; }
-
 .dot.yellow { background: #ffbd2e; }
-
 .dot.green { background: #27c93f; }
 
-.bca-preview img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-
-.hover-text { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(217, 4, 41, 0.9); color: white; text-align: center; padding: 8px; font-size: 12px; font-weight: bold; opacity: 0; transition: opacity 0.3s; font-family: var(--font-body); }
-
-.bca-preview:hover .hover-text { opacity: 1; }
-
-
-
-/* --- RESPONSIVE MOBILE --- */
-
-@media (max-width: 768px) {
-
-    h1 { font-size: 26px; line-height: 1.3; }
-
-    header { padding-top: 40px; }
-
-    .container { flex-direction: column; width: 90%; }
-
-    .main-content, .sidebar { width: 100%; padding: 25px; box-sizing: border-box; }
-
-    .sidebar { position: static; order: -1; }
-
-    nav { width: 90%; margin-bottom: 30px; }
-
-    nav a { font-size: 14px; padding: 8px 12px; }
-
-    .media-grid { grid-template-columns: 1fr; }
-
+.bca-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
 }
 
-
-
-/* --- KHỐI TÔN VINH --- */
-
-.quote-box-sidebar {
-
-    background: linear-gradient(135deg, #d90429 0%, #b71c1c 100%);
-
+.hover-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(217, 4, 41, 0.9);
     color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: var(--font-body);
+}
 
+.bca-preview:hover .hover-text {
+    opacity: 1; /* Hiện chữ khi di chuột vào */
+}
+
+/* --- RESPONSIVE MOBILE (GIAO DIỆN ĐIỆN THOẠI) --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+    header {
+        padding-top: 40px;
+    }
+    .container {
+        flex-direction: column; /* Chuyển thành 1 cột dọc */
+        width: 90%;
+    }
+    .main-content, .sidebar {
+        width: 100%;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+    .sidebar {
+        position: static;
+        order: -1; /* Đẩy sidebar lên trên hoặc xuống dưới tùy ý */
+    }
+    nav {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+    nav a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    .media-grid {
+        grid-template-columns: 1fr; /* Tin tức thành 1 cột */
+    }
+}
+
+/* --- KHỐI TÔN VINH (GÓC SIDEBAR) --- */
+.quote-box-sidebar {
+    background: linear-gradient(135deg, #d90429 0%, #b71c1c 100%);
+    color: white;
     padding: 15px;
-
     border-radius: 15px;
-
     margin: 20px 0;
-
     box-shadow: 0 5px 15px rgba(217, 4, 41, 0.2);
-
     position: relative;
-
     overflow: hidden;
-
     text-align: left;
-
 }
 
 .quote-box-sidebar::before {
-
-    content: "★";
-
+    content: "★"; /* Ngôi sao chìm trang trí */
     position: absolute;
-
-    top: -10px; right: -10px;
-
+    top: -10px;
+    right: -10px;
     font-size: 80px;
-
     color: rgba(255, 218, 0, 0.15);
-
     transform: rotate(15deg);
-
 }
 
+/* --- TIN TỨC (GRID) --- */
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia 2 cột tin tức */
+    gap: 20px;
+    margin-bottom: 40px;
+}
 
+.news-card {
+    background: #f9f9f9;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
 
-/* --- TIN TỨC --- */
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
-.media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+.news-thumb {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
 
-.news-card { background: #f9f9f9; border-radius: 15px; overflow: hidden; border: 1px solid #eee; transition: 0.3s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+.news-info {
+    padding: 15px;
+}
 
-.news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.news-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+}
 
-.news-thumb { width: 100%; height: 150px; object-fit: cover; }
+.news-desc {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
 
-.news-info { padding: 15px; }
+/* --- BÁO NHÂN DÂN (WIDGET) --- */
+.nd-widget {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
 
-.news-title { font-family: var(--font-heading); font-weight: 700; font-size: 16px; margin: 0 0 10px 0; color: var(--primary-color); }
+.nd-header {
+    background: #cd201f;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 3px solid #b31b1b;
+}
 
-.news-desc { font-size: 13px; color: #666; margin: 0; }
+.nd-logo-text {
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+}
 
+.nd-content {
+    height: 400px;
+    overflow-y: auto; /* Cho phép cuộn dọc */
+    padding: 15px;
+}
 
+/* Tùy chỉnh thanh cuộn (Scrollbar) cho đẹp */
+.nd-content::-webkit-scrollbar {
+    width: 8px;
+}
 
-/* --- BÁO NHÂN DÂN --- */
+.nd-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
 
-.nd-widget { border: 1px solid #ddd; border-radius: 15px; overflow: hidden; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 40px; }
+.nd-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
 
-.nd-header { background: #cd201f; color: white; padding: 15px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid #b31b1b; }
+.nd-content::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
 
-.nd-logo-text { font-family: "Times New Roman", serif; font-weight: bold; font-size: 20px; text-transform: uppercase; }
+.nd-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 15px;
+    text-decoration: none;
+    color: #333;
+}
 
-.nd-content { height: 400px; overflow-y: auto; padding: 15px; }
+.nd-item:hover .nd-title {
+    color: #cd201f;
+}
 
-.nd-content::-webkit-scrollbar { width: 8px; }
+.nd-thumb {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+}
 
-.nd-content::-webkit-scrollbar-track { background: #f1f1f1; }
+.nd-title {
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1.4;
+    font-family: var(--font-heading);
+}
 
-.nd-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-
-.nd-content::-webkit-scrollbar-thumb:hover { background: #999; }
-
-.nd-item { display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #eee; padding-bottom: 15px; text-decoration: none; color: #333; }
-
-.nd-item:hover .nd-title { color: #cd201f; }
-
-.nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
-
-.nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
-
-.nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
-
-
-
+.nd-date {
+    font-size: 12px;
+    color: #888;
+    display: block;
+    margin-top: 5px;
+}
