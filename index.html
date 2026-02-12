@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>🏠 Trang chủ | An Toàn Số</title>
+    <title> Trang chủ | An Toàn Số</title>
     
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/553/553376.png" type="image/png">
     
@@ -160,28 +160,53 @@
 
     </div> 
     
-    <footer>
-      <h3>&copy; 2026 - Tin học 12. Design by <strong><a href="https://www.instagram.com/starlinetouren/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">ohmymihhh</a></strong>.</h3>
-      <div style="font-family: monospace; font-size: 15px; margin-top: 15px; display: inline-block; background: rgba(255,255,255,0.5); padding: 5px 15px; border-radius: 20px;">
-        <span id="clock">Loading...</span>
-        <span style="margin: 0 10px; color: #ccc;">|</span> 
-        <span id="weather" style="font-weight: bold; color:#5d4037;">☁️ Đang tải...</span>
-      </div>
-      <script>
-        function updateTime() { document.getElementById("clock").innerText = new Date().toLocaleString('vi-VN'); }
-        setInterval(updateTime, 1000); updateTime(); 
+<footer>
+    <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px; color: #5d4037; font-size: 15px; padding: 10px;">
+        
+        <span style="font-weight: 600;">
+            &copy; 2026 - Tin học 12. Design by 
+            <strong>
+                <a href="https://www.instagram.com/starlinetouren/" target="_blank" rel="noopener noreferrer" style="color: #5d4037; text-decoration: none;">ohmymihhh</a>
+            </strong>.
+        </span>
+
+        <div style="font-family: monospace; background: rgba(255,255,255,0.6); padding: 5px 15px; border-radius: 20px; border: 1px solid rgba(93, 64, 55, 0.1);">
+            <span id="clock" style="color: #5d4037; font-weight: bold;">Loading...</span>
+            <span style="margin: 0 8px; color: #8d6e63;">|</span> 
+            <span id="weather" style="color: #5d4037;">☁️ Đang tải...</span>
+        </div>
+
+    </div>
+
+    <script>
+        // --- 1. ĐỒNG HỒ ---
+        function updateTime() { 
+            document.getElementById("clock").innerText = new Date().toLocaleString('vi-VN'); 
+        }
+        setInterval(updateTime, 1000); 
+        updateTime(); 
+
+        // --- 2. THỜI TIẾT ---
         async function updateWeather() {
             try {
                 const url = "https://api.open-meteo.com/v1/forecast?latitude=21.0285&longitude=105.8542&current_weather=true";
                 const response = await fetch(url);
                 const data = await response.json();
-                document.getElementById("weather").innerHTML = `<a href="secret.html" target="_blank" style="color: #5d4037; text-decoration: none;"><button style="cursor:text; background: none; border: none; padding: 0; font-family: inherit; font-size: inherit; color: inherit;">🌡️ Hà Nội: ${data.current_weather.temperature}°C </button></a>`;
-            } catch (e) { document.getElementById("weather").innerText = "🌡️ Thời tiết: N/A"; }
+                
+                // Tao sửa lại chỗ này cho gọn code, bỏ bớt mấy cái button thừa đi
+                document.getElementById("weather").innerHTML = `
+                    <a href="secret.html" target="_blank" style="color: #5d4037; text-decoration: none; font-weight: bold;">
+                        🌡️ Hà Nội: ${data.current_weather.temperature}°C 
+                    </a>`;
+            } catch (e) { 
+                document.getElementById("weather").innerText = "🌡️ Thời tiết: N/A"; 
+            }
         }
-        updateWeather(); setInterval(updateWeather, 600000); 
-      </script>
-    </footer>
-
+        updateWeather(); 
+        setInterval(updateWeather, 600000); 
+    </script>
+  
+</footer>
     <div id="pingu-credit-modal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="closeCreditModal()">&times;</span>
