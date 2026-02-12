@@ -35,9 +35,16 @@ body {
 }
 
 /* --- 3. HEADER (PHẦN ĐẦU TRANG) --- */
+/* --- 3. HEADER --- */
 header {
-    text-align: left;           /* Căn lề trái cho nội dung header */
-    padding: 60px 20px 80px;    /* Khoảng cách đệm bên trong */
+    text-align: left;
+    
+    /* SỬA DÒNG NÀY: */
+    /* 60px(Trên) 20px(Phải) 80px(Dưới) 180px(Trái - Chừa chỗ to cho Logo) */
+    padding: 60px 20px 80px 180px; 
+    
+    /* THÊM DÒNG NÀY: Để sau này đặt logo (position: absolute) nó sẽ nằm gọn trong header */
+    position: relative; 
     
     /* Ảnh nền kết hợp Gradient màu loang */
     background: url("beige.jpg") center/cover no-repeat,
@@ -50,6 +57,7 @@ header {
     box-shadow: var(--shadow);  /* Đổ bóng cho header nổi lên */
     margin-bottom: -50px;       /* Đẩy header lấn xuống dưới một chút */
 }
+
 
 h1 {
     font-family: var(--font-heading); /* Dùng font Merriweather */
@@ -464,4 +472,5 @@ strong {
     display: block;
     margin-top: 5px;
 }
+
 
