@@ -1,70 +1,199 @@
 /* =========================================
    STYLE.CSS - GIAO DIỆN WEBSITE AN TOÀN SỐ
-   Updated: Font chữ sạch & lịch sự
+   Updated: Phong cách Chính thống & Code Chuẩn SGK
    ========================================= */
 
-/* --- 0. IMPORT FONTS (Google Fonts) --- */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600&display=swap');
-
-/* --- 1. KHAI BÁO BIẾN (DESIGN SYSTEM) --- */
-:root {
-    --primary-color: #5d4037;   /* Nâu Cafe */
-    --accent-color: #8d6e63;    /* Nâu Hồng */
-    --highlight: #d90429;       /* Đỏ cờ */
-    --text-color: #4a4a4a;      /* Xám đậm */
-    --bg-color: #f5f2eb;        /* Kem ấm */
-    --white: #ffffff;
-    --radius-box: 30px;         /* Bo góc */
-    --shadow: 0 10px 30px rgba(93, 64, 55, 0.1);
-    
-    /* Font Variables */
-    --font-heading: 'Merriweather', serif;  /* Font Tiêu đề (Có chân - Sang trọng) */
-    --font-body: 'Inter', sans-serif;       /* Font Nội dung (Không chân - Sạch sẽ) */
+/* --- 0. CẤU HÌNH CƠ BẢN (RESET) --- */
+/* Quan trọng: Dòng này giúp web không bị vỡ khung hay thừa lề */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* --- 2. CẤU TRÚC CHUNG --- */
+/* --- 1. IMPORT FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Inter:wght@400;500;600&display=swap');
+
+/* --- 2. KHAI BÁO BIẾN MÀU SẮC --- */
+:root {
+    --primary-color: #5d4037;   /* Nâu Cafe - Màu chính */
+    --accent-color: #8d6e63;    /* Nâu Hồng - Màu phụ */
+    --highlight: #d90429;       /* Đỏ cờ - Điểm nhấn quan trọng */
+    --text-color: #333333;      /* Màu chữ đen xám dễ đọc */
+    --bg-color: #f5f2eb;        /* Màu nền kem nhẹ */
+    --white: #ffffff;
+    
+    /* Font chữ */
+    --font-heading: 'Merriweather', serif;  /* Tiêu đề có chân (Sang trọng) */
+    --font-body: 'Inter', sans-serif;       /* Nội dung không chân (Hiện đại) */
+}
+
+/* --- 3. CẤU TRÚC CHUNG --- */
 body {
-    margin: 0;
     background-color: var(--bg-color);
-    /* Thay đổi font mặc định sang Inter */
     font-family: var(--font-body);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* --- 3. HEADER --- */
+/* --- 4. HEADER (PHẦN ĐẦU TRANG) --- */
 header {
     text-align: center;
-    padding: 60px 20px 80px;
+    padding: 40px 20px;
+    /* Ảnh nền + Màu loang nhẹ */
     background: url("beige.jpg") center/cover no-repeat, 
                 linear-gradient(135deg, #e6dedd 0%, #d7ccc8 100%);
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    box-shadow: var(--shadow);
-    margin-bottom: -50px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 h1 {
-    /* Áp dụng font Tiêu đề */
     font-family: var(--font-heading);
-    font-size: 42px;
-    font-weight: 900; /* Đậm hơn chút cho uy lực */
+    font-size: 36px;
+    font-weight: 900;
     color: var(--primary-color);
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
+    text-transform: uppercase; /* Chữ in hoa uy tín */
+    margin-bottom: 10px;
 }
 
 header p {
     color: var(--accent-color);
     font-size: 16px;
     font-weight: 500;
-    margin-top: 10px;
 }
 
-/* --- 4. MENU (NAV) --- */
+/* --- 5. MENU (NAV) - ĐÃ SỬA CHUẨN SGK --- */
 nav {
+    /* Cấu trúc nền tảng */
+    background-color: var(--white);
+    width: 100%;                    /* Tràn viền 100% */
+    padding: 10px 0;
+    
+    /* Căn giữa menu (Dùng Flexbox cơ bản) */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    /* Trang trí kiểu "Nhà nước" */
+    border-top: 5px solid var(--highlight);  /* Viền đỏ trên cùng */
+    border-bottom: 1px solid #ccc;           /* Viền xám mờ bên dưới */
+    
+    /* Hiệu ứng dính (Sticky) - Menu luôn hiện khi cuộn */
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a {
+    text-decoration: none;          /* Bỏ gạch chân */
+    color: #333;
+    margin: 0 10px;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: var(--font-body);
+    text-transform: uppercase;      /* Viết hoa cho trang trọng */
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--highlight); /* Nền đỏ */
+    color: var(--white);                /* Chữ trắng */
+    border-radius: 4px;                 /* Bo góc nhẹ */
+}
+
+/* --- 6. BỐ CỤC (LAYOUT) --- */
+.container {
+    display: flex;          /* Chia cột */
+    width: 90%;             /* Chiều rộng web */
+    max-width: 1100px;      /* Giới hạn chiều rộng tối đa */
+    margin: 40px auto;      /* Căn giữa trang */
+    gap: 30px;              /* Khoảng cách giữa 2 cột */
+    align-items: flex-start;
+}
+
+/* CỘT TRÁI (Nội dung chính) */
+.main-content {
+    flex: 2; /* Chiếm 2 phần */
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* CỘT PHẢI (Thanh bên) */
+.sidebar {
+    flex: 1; /* Chiếm 1 phần */
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    position: sticky;
+    top: 80px; /* Cách menu dính một đoạn */
+}
+
+/* --- 7. TRANG TRÍ NỘI DUNG --- */
+.main-content h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    border-left: 5px solid var(--highlight); /* Gạch đỏ đầu dòng */
+    padding-left: 15px;
+    margin-top: 0;
+}
+
+.main-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+/* Nút bấm kiểu Công an */
+.btn-police {
+    display: inline-block;
+    background-color: var(--highlight);
+    color: #ffda00; /* Chữ vàng */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+.btn-police:hover {
+    background-color: #b71c1c; /* Đỏ đậm hơn khi di chuột */
+}
+
+/* --- 8. FOOTER (CHÂN TRANG) --- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+/* --- 9. RESPONSIVE (Dành cho điện thoại) --- */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Chuyển thành 1 cột dọc */
+        width: 95%;
+    }
+    .sidebar {
+        position: static; /* Bỏ dính trên mobile */
+    }
+    nav {
+        flex-direction: column; /* Menu dọc cho dễ bấm */
+        align-items: center;
+    }
+    nav a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
     /* CẤU TRÚC: Phải tràn viền mới ra dáng nhà nước */
     display: flex;
     justify-content: center; /* Hoặc space-between nếu có logo trái, menu phải */
@@ -276,6 +405,7 @@ strong {
 .nd-thumb { width: 100px; height: 70px; object-fit: cover; border-radius: 5px; }
 .nd-title { margin: 0 0 5px 0; font-weight: bold; font-size: 15px; line-height: 1.4; font-family: var(--font-heading); }
 .nd-date { font-size: 12px; color: #888; display: block; margin-top: 5px; }
+
 
 
 
