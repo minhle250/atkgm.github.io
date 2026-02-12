@@ -85,27 +85,24 @@ header {
     margin: 10px 0 0 0;
 }
 
-/* --- 4. MENU (NAV) - ĐÃ FIX KÍCH THƯỚC --- */
+/* --- 4. MENU (NAV) - BẢN TRÀN VIỀN (FULL WIDTH) --- */
 nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     background-color: var(--white);
 
-    /* TRÀN VIỀN */
-    width: 100%;
-    margin: 0; 
-    border-radius: 0;
+    /* CHỈNH SỬA DUY NHẤT Ở ĐÂY ĐỂ TRẢI DÀI: */
+    width: 100%;             /* 1. Ép chiều rộng 100% màn hình */
+    margin: 0;               /* 2. Xóa margin để nó dính sát lề */
+    border-radius: 0;        /* 3. Xóa bo góc để nó vuông vức với màn hình */
+    box-sizing: border-box;  /* 4. Đảm bảo padding không làm phình chiều rộng */
     
-    /* FIX: Giảm padding xuống còn 15px (Thay vì 80px như cũ) */
+    /* CÁC THUỘC TÍNH CŨ GIỮ NGUYÊN HOẶC TINH CHỈNH NHẸ ĐỂ KHÔNG BỊ LỖI */
     padding: 15px 0;
-    
-    /* CỐ ĐỊNH */
     position: sticky;
     top: 0;
     z-index: 1000;
-    
-    /* TRANG TRÍ */
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     border-bottom: 1px solid #eee;
 }
@@ -122,7 +119,7 @@ nav a {
     font-family: var(--font-body);
 }
 
-nav a:hover, nav a.active { /* Thêm hiệu ứng cho tab đang chọn */
+nav a:hover, nav a.active {
     background-color: var(--primary-color);
     color: var(--white);
     transform: translateY(-2px);
@@ -299,3 +296,4 @@ strong {
     nav a { font-size: 14px; padding: 8px 12px; margin: 2px; }
     .media-grid { grid-template-columns: 1fr; }
 }
+
