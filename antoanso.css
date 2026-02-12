@@ -85,47 +85,45 @@ header {
     margin: 10px 0 0 0;
 }
 
-/* --- 4. MENU (NAV) - ĐÃ FIX KÍCH THƯỚC --- */
+/* --- 4. MENU (NAV) - BẢN SIÊU MỎNG (ULTRA THIN) --- */
 nav {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: center; /* Căn giữa các nút */
+    align-items: center;     /* Căn giữa chữ theo chiều dọc (Quan trọng) */
     background-color: var(--white);
 
-    /* TRÀN VIỀN */
+    /* KÍCH THƯỚC */
     width: 100%;
-    margin: 0; 
+    height: 50px;            /* CHỐT CỨNG CHIỀU CAO: 50PX (Ko thể dày hơn) */
+    margin: 0;
+    padding: 0;              /* Xóa sạch padding */
     border-radius: 0;
-    
-    /* FIX: Giảm padding xuống còn 15px (Thay vì 80px như cũ) */
-    padding: 15px 0;
-    
+
     /* CỐ ĐỊNH */
     position: sticky;
     top: 0;
     z-index: 1000;
-    
+
     /* TRANG TRÍ */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bóng nhỏ lại */
+    border-bottom: 1px solid #ddd;
 }
 
 nav a {
     text-decoration: none;
     color: #000;
-    margin: 5px 10px;
-    padding: 8px 20px;
+    margin: 0 5px;
+    padding: 5px 15px;       /* Nút bấm nhỏ lại cho vừa cái thanh 50px */
     font-weight: 600;
     border-radius: 50px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    transition: 0.3s;
+    font-size: 14px;         /* Chữ vừa phải, gọn gàng */
     font-family: var(--font-body);
 }
 
-nav a:hover, nav a.active { /* Thêm hiệu ứng cho tab đang chọn */
+nav a:hover, nav a.active {
     background-color: var(--primary-color);
     color: var(--white);
-    transform: translateY(-2px);
 }
 
 /* --- 5. BỐ CỤC CHIA CỘT (LAYOUT) - ĐÃ FIX KHOẢNG CÁCH --- */
@@ -299,3 +297,4 @@ strong {
     nav a { font-size: 14px; padding: 8px 12px; margin: 2px; }
     .media-grid { grid-template-columns: 1fr; }
 }
+
